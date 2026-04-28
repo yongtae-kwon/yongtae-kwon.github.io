@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Name</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <main class="page">
+
+    <header class="hero">
+      <div class="photo-wrap">
+        <img src="assets/profile.jpg" alt="Profile photo" class="profile-photo" />
+      </div>
+
+      <div class="intro">
+        <h1>Your Name</h1>
+        <p class="role">PhD Candidate in Economics</p>
+        <p class="institution">Your University</p>
+
+        <p>
+          <a href="assets/cv.pdf" class="cv-link">Download CV</a>
+        </p>
+
+        <p class="contact">
+          your.email@university.edu<br />
+          Your Office Address<br />
+          City, Country
+        </p>
+      </div>
+    </header>
+
+    <nav class="nav">
+      <a href="#about">About</a>
+      <a href="#working-papers">Working Papers</a>
+      <a href="#work-in-progress">Work in Progress</a>
+      <a href="#policy-work">Policy Work</a>
+      <a href="#teaching">Teaching</a>
+    </nav>
+
+    <section id="about">
+      <h2>About</h2>
+      <p>
+        I am a PhD Candidate in Economics at Your University. I am an applied
+        economist working at the intersection of environmental, urban, and
+        development economics. I use tools from applied microeconomics,
+        spatial economics, and empirical industrial organization.
+      </p>
+      <p>
+        This is placeholder text. Replace it with your real biography,
+        job-market statement, or research summary.
+      </p>
+    </section>
+
+    <section id="working-papers">
+      <h2>Working Papers</h2>
+
+      <article class="paper">
+        <h3>Title of Your Job Market Paper</h3>
+        <p class="coauthors">with Coauthor One and Coauthor Two</p>
+
+        <p class="links">
+          <button class="toggle" data-target="abstract-1">▸ Abstract</button>
+          <a href="#">[Paper]</a>
+          <button class="toggle" data-target="presentations-1">▸ Presentations</button>
+          <button class="toggle" data-target="funders-1">▸ Funders & Partners</button>
+        </p>
+
+        <div id="abstract-1" class="hidden toggle-content">
+          <p>
+            This paper studies a core policy or economic question. This is
+            placeholder abstract text. Replace it with 2–4 paragraphs describing
+            motivation, data, research design, and results.
+          </p>
+        </div>
+
+        <div id="presentations-1" class="hidden toggle-content">
+          <p>
+            Presentations: University Seminar, Field Conference, Workshop Name.
+          </p>
+        </div>
+
+        <div id="funders-1" class="hidden toggle-content">
+          <p>
+            Funders & Partners: Placeholder Institute, Research Center.
+          </p>
+        </div>
+      </article>
+
+      <article class="paper">
+        <h3>Second Working Paper Title</h3>
+        <p class="coauthors">with Coauthor Three</p>
+
+        <p class="links">
+          <button class="toggle" data-target="abstract-2">▸ Abstract</button>
+          <a href="#">[Paper]</a>
+          <a href="#">[Slides]</a>
+        </p>
+
+        <div id="abstract-2" class="hidden toggle-content">
+          <p>
+            Placeholder abstract for the second working paper.
+          </p>
+        </div>
+      </article>
+    </section>
+
+    <section id="work-in-progress">
+      <h2>Work in Progress</h2>
+
+      <article class="paper">
+        <h3>Work in Progress Project Title</h3>
+        <p class="coauthors">with Coauthor Four and Coauthor Five</p>
+
+        <p class="links">
+          <button class="toggle" data-target="funders-2">▸ Funders & Partners</button>
+        </p>
+
+        <div id="funders-2" class="hidden toggle-content">
+          <p>
+            Funders & Partners: Placeholder Grant, Placeholder Research Lab.
+          </p>
+        </div>
+      </article>
+    </section>
+
+    <section id="policy-work">
+      <h2>Policy Work</h2>
+
+      <article class="paper">
+        <h3>Policy Paper Title</h3>
+        <p class="coauthors">with Policy Coauthor One and Policy Coauthor Two</p>
+        <p class="note">Policy Report</p>
+
+        <p class="links">
+          <a href="#">[Link]</a>
+          <a href="#">[Policy Paper]</a>
+        </p>
+      </article>
+    </section>
+
+    <section id="teaching">
+      <h2>Teaching</h2>
+
+      <h3 class="teaching-subhead">Currently Teaching</h3>
+      <ul class="teaching-list">
+        <li><strong>COURSE 101</strong> Course Title <span>graduate</span></li>
+        <li><strong>COURSE 202</strong> Course Title <span>undergraduate</span></li>
+      </ul>
+
+      <h3 class="teaching-subhead">Previous Teaching</h3>
+      <ul class="teaching-list">
+        <li><strong>COURSE 303</strong> Course Title <span>undergraduate</span></li>
+        <li><strong>COURSE 404</strong> Course Title <span>all students</span></li>
+      </ul>
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
