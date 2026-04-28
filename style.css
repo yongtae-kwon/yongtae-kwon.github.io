@@ -1,0 +1,191 @@
+:root {
+  --text: #111;
+  --muted: #555;
+  --link: #1a4f8b;
+  --border: #ddd;
+  --bg: #fff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+.page {
+  max-width: 760px;
+  margin: 42px auto 80px;
+  padding: 0 24px;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 34px;
+  align-items: start;
+  margin-bottom: 28px;
+}
+
+.profile-photo {
+  width: 180px;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+  background: #eee;
+}
+
+h1 {
+  font-size: 32px;
+  font-weight: normal;
+  line-height: 1.15;
+  margin: 0 0 14px;
+}
+
+.role,
+.institution {
+  margin: 0 0 5px;
+}
+
+.contact {
+  margin-top: 20px;
+  color: var(--text);
+}
+
+a {
+  color: var(--link);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.cv-link {
+  display: inline-block;
+  margin-top: 8px;
+}
+
+.nav {
+  margin: 26px 0 34px;
+  padding: 12px 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav a {
+  margin-right: 16px;
+  white-space: nowrap;
+}
+
+section {
+  margin-bottom: 38px;
+}
+
+h2 {
+  font-size: 24px;
+  font-weight: normal;
+  margin: 0 0 14px;
+}
+
+h3 {
+  font-size: 18px;
+  font-weight: normal;
+  margin: 0 0 3px;
+}
+
+.paper {
+  margin-bottom: 28px;
+}
+
+.coauthors {
+  margin: 0 0 8px;
+  color: var(--muted);
+}
+
+.note {
+  margin: 0 0 8px;
+  color: var(--muted);
+}
+
+.links {
+  margin: 4px 0 10px;
+}
+
+.links a,
+.toggle {
+  margin-right: 8px;
+}
+
+.toggle {
+  border: none;
+  padding: 0;
+  background: transparent;
+  color: var(--link);
+  font-family: inherit;
+  font-size: inherit;
+  cursor: pointer;
+}
+
+.toggle:hover {
+  text-decoration: underline;
+}
+
+.toggle-content {
+  margin-top: 8px;
+}
+
+.hidden {
+  display: none;
+}
+
+.teaching-subhead {
+  margin-top: 18px;
+  margin-bottom: 6px;
+}
+
+.teaching-list {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 0;
+}
+
+.teaching-list li {
+  margin-bottom: 4px;
+}
+
+.teaching-list span {
+  color: var(--muted);
+  margin-left: 4px;
+}
+
+@media (max-width: 640px) {
+  .page {
+    margin-top: 24px;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .profile-photo {
+    width: 160px;
+    height: 200px;
+  }
+
+  .nav a {
+    display: inline-block;
+    margin-bottom: 6px;
+  }
+}
