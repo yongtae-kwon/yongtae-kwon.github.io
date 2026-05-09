@@ -268,3 +268,56 @@ h3 {
     padding-left: 14px;
   }
 }
+
+/* 1. Shrink gap between h2 divider line and following content */
+h2 {
+  margin-bottom: 14px !important;
+}
+
+h2::after {
+  margin-top: 14px !important;
+}
+
+/* 2. Make profile photo larger and fully fill its designated box */
+.hero {
+  grid-template-columns: 260px 1fr !important;
+  gap: 42px !important;
+}
+
+.photo-wrap {
+  width: 260px !important;
+  height: 325px !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  background: none !important;
+  border-radius: 10px !important;
+  overflow: hidden !important;
+}
+
+.profile-photo {
+  width: 260px !important;
+  height: 325px !important;
+  display: block !important;
+  object-fit: cover !important;
+  object-position: center top !important;
+  border-radius: 10px !important;
+  background: none !important;
+}
+
+/* Mobile version */
+@media (max-width: 640px) {
+  .hero {
+    grid-template-columns: 1fr !important;
+    gap: 18px !important;
+  }
+
+  .photo-wrap {
+    width: 220px !important;
+    height: 275px !important;
+  }
+
+  .profile-photo {
+    width: 220px !important;
+    height: 275px !important;
+  }
+}
