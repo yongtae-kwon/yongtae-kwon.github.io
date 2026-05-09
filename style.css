@@ -1,8 +1,8 @@
-root {
+:root {
   --text: #111111;
   --muted: #777777;
   --link: #BF5700;
-  --border: #e5e5e5;
+  --border: #dddddd;
   --bg: #ffffff;
 }
 
@@ -16,15 +16,13 @@ html {
 
 body {
   margin: 0;
-  padding: 0;
-
   background: var(--bg);
   color: var(--text);
 
   font-family: "Inter", sans-serif;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 400;
-  line-height: 1.75;
+  line-height: 1.65;
 
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
@@ -54,11 +52,10 @@ body {
 }
 
 h1 {
-  font-size: 54px;
+  font-size: 32px;
   font-weight: 700;
-  line-height: 1.05;
-  letter-spacing: -1.5px;
-  margin: 0 0 18px;
+  letter-spacing: -0.8px;
+  margin: 0 0 12px;
 }
 
 .role,
@@ -107,16 +104,15 @@ section {
 }
 
 h2 {
-  font-size: 42px;
+  font-size: 24px;
   font-weight: 700;
-  letter-spacing: -1px;
-  margin: 0 0 24px;
+  margin: 0 0 14px;
 }
 
 h3 {
-  font-size: 30px;
+  font-size: 18px;
   font-weight: 500;
-  margin: 0 0 6px;
+  margin: 0 0 4px;
 }
 
 .paper {
@@ -146,9 +142,13 @@ h3 {
   border: none;
   padding: 0;
   background: transparent;
-  color: var(--link);
+
+  color: var(--link) !important;
+
   font-family: inherit;
   font-size: inherit;
+  font-weight: 400;
+
   cursor: pointer;
 }
 
@@ -213,4 +213,11 @@ h3 {
   }
 }
 
+.links a,
+.nav a,
+.cv-link,
+.toggle,
+.contact a {
+  color: #BF5700 !important;
+}
 
