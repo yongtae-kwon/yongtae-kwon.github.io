@@ -62,7 +62,7 @@ h1 {
 .role,
 .institution {
   margin: 0 0 5px;
-  color: var(--muted);
+ color: #111111;
 }
 
 .contact {
