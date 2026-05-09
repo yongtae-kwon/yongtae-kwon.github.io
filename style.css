@@ -30,6 +30,10 @@ body {
   padding: 0 24px;
 }
 
+/* =========================
+   HERO / INTRO
+========================= */
+
 .hero {
   display: grid;
   grid-template-columns: 180px 1fr;
@@ -66,6 +70,10 @@ h1 {
   color: var(--text);
 }
 
+/* =========================
+   LINKS
+========================= */
+
 a,
 a:visited,
 a:active,
@@ -91,6 +99,10 @@ a:hover,
   margin-top: 8px;
 }
 
+/* =========================
+   NAVIGATION
+========================= */
+
 .nav {
   margin: 26px 0 34px;
   padding: 12px 0;
@@ -103,18 +115,26 @@ a:hover,
   white-space: nowrap;
 }
 
+/* =========================
+   SECTIONS
+========================= */
+
 section {
-  margin-bottom: 38px;
+  margin-bottom: 52px;
 }
 
+/* Section title + Ignacio-style line underneath */
+section > h2,
 h2 {
+  display: block;
+  width: 100%;
   font-size: 24px;
   font-weight: 700;
   line-height: 1.25;
-  margin: 0 0 28px;
+  letter-spacing: 0.5px;
+  margin: 0 0 28px 0;
   padding-bottom: 18px;
   border-bottom: 3px solid #111111;
-  letter-spacing: 0.5px;
 }
 
 h3 {
@@ -124,25 +144,42 @@ h3 {
   margin: 0 0 4px;
 }
 
+/* =========================
+   PAPERS / PROJECTS
+========================= */
+
 .paper {
-  margin-bottom: 28px;
+  margin-bottom: 30px;
 }
 
+/* Main title stays flush left */
+.paper h3 {
+  margin-left: 0;
+}
+
+/* Everything after paper title is slightly indented */
+.paper > p,
+.paper > div,
 .paper .coauthors,
 .paper .links,
 .paper .toggle-content,
 .paper .note {
-  margin-left: 18px;
+  padding-left: 18px;
+}
+
+/* Do NOT indent the paper title itself */
+.paper > h3 {
+  padding-left: 0;
 }
 
 .coauthors,
 .note {
-  margin: 0 0 8px;
+  margin: 0 0 8px 0;
   color: var(--muted);
 }
 
 .links {
-  margin: 4px 0 10px;
+  margin: 4px 0 10px 0;
 }
 
 .links a,
@@ -174,6 +211,10 @@ h3 {
   display: none;
 }
 
+/* =========================
+   TEACHING
+========================= */
+
 .teaching-subhead {
   margin-top: 18px;
   margin-bottom: 6px;
@@ -194,6 +235,10 @@ h3 {
   margin-left: 4px;
 }
 
+/* =========================
+   MOBILE
+========================= */
+
 @media (max-width: 640px) {
   .page {
     margin-top: 24px;
@@ -212,5 +257,14 @@ h3 {
   .nav a {
     display: inline-block;
     margin-bottom: 6px;
+  }
+
+  .paper > p,
+  .paper > div,
+  .paper .coauthors,
+  .paper .links,
+  .paper .toggle-content,
+  .paper .note {
+    padding-left: 14px;
   }
 }
