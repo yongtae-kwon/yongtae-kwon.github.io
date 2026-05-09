@@ -1,9 +1,9 @@
-:root {
-  --text: #111;
-  --muted: #555;
+root {
+  --text: #111111;
+  --muted: #777777;
   --link: #BF5700;
-  --border: #ddd;
-  --bg: #fff;
+  --border: #e5e5e5;
+  --bg: #ffffff;
 }
 
 * {
@@ -16,6 +16,8 @@ html {
 
 body {
   margin: 0;
+  padding: 0;
+
   background: var(--bg);
   color: var(--text);
 
@@ -27,6 +29,7 @@ body {
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
+
 
 .page {
   max-width: 760px;
