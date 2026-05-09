@@ -321,3 +321,20 @@ h2::after {
     height: 275px !important;
   }
 }
+
+.toggle-content {
+  margin-top: 14px !important;
+  margin-left: 18px !important;
+  padding: 22px 28px 22px 32px !important;
+
+  background: #f1f1f1;
+  border-left: 5px solid #BF5700;
+  border-radius: 0 5px 5px 0;
+
+  color: #444444;
+  line-height: 1.75;
+}
+
+.toggle-content p {
+  margin: 0;
+}
