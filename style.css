@@ -132,9 +132,9 @@ h2 {
   font-weight: 700;
   line-height: 1.25;
   letter-spacing: 0.5px;
-  margin: 0 0 28px 0;
-  padding-bottom: 18px;
-  border-bottom: 3px solid #111111;
+  margin: 0 0 14px;
+  padding-bottom: 0;
+  border-bottom: none;
 }
 
 h3 {
