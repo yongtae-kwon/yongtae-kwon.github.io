@@ -1,4 +1,10 @@
-
+:root {
+  --text: #111111;
+  --muted: #777777;
+  --link: #BF5700;
+  --border: #dddddd;
+  --bg: #ffffff;
+}
 
 * {
   box-sizing: border-box;
@@ -30,22 +36,34 @@ body {
 
 .hero {
   display: grid;
-  grid-template-columns: 180px 1fr;
-  gap: 34px;
+  grid-template-columns: 260px 1fr;
+  gap: 42px;
   align-items: start;
   margin-bottom: 28px;
 }
 
+.photo-wrap {
+  width: 260px;
+  height: 325px;
+  padding: 0;
+  margin: 0;
+  background: none;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
 .profile-photo {
-  width: 180px;
-  height: 220px;
-  object-fit: cover;
+  width: 260px;
+  height: 325px;
   display: block;
-  background: #eeeeee;
-  border-radius: 8px;
+  object-fit: cover;
+  object-position: center top;
+  background: none;
+  border-radius: 10px;
 }
 
 h1 {
+  font-family: Georgia, "Times New Roman", serif;
   font-size: 32px;
   font-weight: 700;
   line-height: 1.15;
@@ -56,7 +74,7 @@ h1 {
 .role,
 .institution {
   margin: 0 0 5px;
- color: #111111;
+  color: var(--text);
 }
 
 .contact {
@@ -74,7 +92,8 @@ a:active,
 .nav a,
 .links a,
 .cv-link,
-.contact a {
+.contact a,
+.toggle {
   color: var(--link) !important;
   text-decoration: none;
 }
@@ -83,7 +102,8 @@ a:hover,
 .nav a:hover,
 .links a:hover,
 .cv-link:hover,
-.contact a:hover {
+.contact a:hover,
+.toggle:hover {
   color: var(--link) !important;
   text-decoration: underline;
 }
@@ -107,32 +127,23 @@ a:hover,
 .nav a {
   margin-right: 16px;
   white-space: nowrap;
+  color: var(--link) !important;
 }
 
 /* =========================
    SECTIONS
 ========================= */
+
 h1,
 h2,
 h3 {
- font-family: Georgia, "Times New Roman", serif;
-}
-
-h2 {
-  font-weight: 700;
-}
-
-.paper h3 {
-  font-size: 19px;
-  font-weight: 700;
-  line-height: 1.15;
+  font-family: Georgia, "Times New Roman", serif;
 }
 
 section {
   margin-bottom: 52px;
 }
 
-/* Section title + Ignacio-style line underneath */
 section > h2,
 h2 {
   display: block;
@@ -161,12 +172,14 @@ h3 {
   margin-bottom: 30px;
 }
 
-/* Main title stays flush left */
 .paper h3 {
   margin-left: 0;
+  padding-left: 0;
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 1.15;
 }
 
-/* Everything after paper title is slightly indented */
 .paper > p,
 .paper > div,
 .paper .coauthors,
@@ -176,7 +189,6 @@ h3 {
   padding-left: 18px;
 }
 
-/* Do NOT indent the paper title itself */
 .paper > h3 {
   padding-left: 0;
 }
@@ -196,12 +208,16 @@ h3 {
   margin-right: 8px;
 }
 
+/* =========================
+   TOGGLE BUTTONS
+========================= */
+
 .toggle {
   border: none;
   padding: 0;
   background: transparent;
   color: var(--link) !important;
-  font-family: inherit;
+  font-family: Georgia, "Times New Roman", serif;
   font-size: inherit;
   font-weight: 400;
   cursor: pointer;
@@ -213,7 +229,20 @@ h3 {
 }
 
 .toggle-content {
-  margin-top: 8px;
+  margin-top: 14px !important;
+  margin-left: 18px !important;
+  padding: 22px 28px 22px 32px !important;
+
+  background: #f1f1f1;
+  border-left: 5px solid var(--link);
+  border-radius: 0 5px 5px 0;
+
+  color: #444444;
+  line-height: 1.75;
+}
+
+.toggle-content p {
+  margin: 0;
 }
 
 .hidden {
@@ -258,9 +287,14 @@ h3 {
     gap: 18px;
   }
 
+  .photo-wrap {
+    width: 220px;
+    height: 275px;
+  }
+
   .profile-photo {
-    width: 160px;
-    height: 200px;
+    width: 220px;
+    height: 275px;
   }
 
   .nav a {
@@ -276,74 +310,4 @@ h3 {
   .paper .note {
     padding-left: 14px;
   }
-}
-
-/* 1. Shrink gap between h2 divider line and following content */
-h2 {
-  margin-bottom: 14px !important;
-}
-
-h2::after {
-  margin-top: 14px !important;
-}
-
-/* 2. Make profile photo larger and fully fill its designated box */
-.hero {
-  grid-template-columns: 260px 1fr !important;
-  gap: 42px !important;
-}
-
-.photo-wrap {
-  width: 260px !important;
-  height: 325px !important;
-  padding: 0 !important;
-  margin: 0 !important;
-  background: none !important;
-  border-radius: 10px !important;
-  overflow: hidden !important;
-}
-
-.profile-photo {
-  width: 260px !important;
-  height: 325px !important;
-  display: block !important;
-  object-fit: cover !important;
-  object-position: center top !important;
-  border-radius: 10px !important;
-  background: none !important;
-}
-
-/* Mobile version */
-@media (max-width: 640px) {
-  .hero {
-    grid-template-columns: 1fr !important;
-    gap: 18px !important;
-  }
-
-  .photo-wrap {
-    width: 220px !important;
-    height: 275px !important;
-  }
-
-  .profile-photo {
-    width: 220px !important;
-    height: 275px !important;
-  }
-}
-
-.toggle-content {
-  margin-top: 14px !important;
-  margin-left: 18px !important;
-  padding: 22px 28px 22px 32px !important;
-
-  background: #f1f1f1;
-  border-left: 5px solid #BF5700;
-  border-radius: 0 5px 5px 0;
-
-  color: #444444;
-  line-height: 1.75;
-}
-
-.toggle-content p {
-  margin: 0;
 }
