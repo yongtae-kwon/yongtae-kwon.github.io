@@ -1,13 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Baskervville&family=Lato:wght@400;700&family=Libre+Baskerville:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Libre+Baskerville:wght@400;700&display=swap');
 
 :root {
   --text: #111111;
   --muted: #777777;
   --credential: #555555;
+
   --link: #BF5700;
+  --link-soft: rgba(191, 87, 0, 0.08);
+
   --border: #dddddd;
   --bg: #ffffff;
-  --link-soft: rgba(191, 87, 0, 0.08);
 }
 
 /* =========================
@@ -48,6 +50,7 @@ body {
   display: grid;
   grid-template-columns: 260px 1fr;
   gap: 42px;
+
   align-items: start;
 
   margin-bottom: 28px;
@@ -63,7 +66,7 @@ body {
 
   padding: 0;
 
-  /* Align photo visually with top of name */
+  /* Align image with top of name */
   margin: -8px 0 0 0;
 
   background: none;
@@ -82,12 +85,12 @@ body {
   object-position: center top;
 
   background: none;
+
   border-radius: 10px;
 }
 
 /* =========================
    NAME
-   Libre Baskerville
 ========================= */
 
 h1 {
@@ -97,6 +100,7 @@ h1 {
   font-weight: 700;
 
   line-height: 1.15;
+
   letter-spacing: -0.5px;
 
   margin: 0 0 17px;
@@ -104,19 +108,11 @@ h1 {
 
 /* =========================
    CREDENTIALS / INSTITUTION
-   Baskervville
 ========================= */
-
-/*
-  Baskervville gives these lines a naturally
-  narrower Baskerville appearance.
-
-  No artificial scaleX or negative tracking.
-*/
 
 .role,
 .institution {
-  font-family: "Baskervville", "Times New Roman", serif;
+  font-family: "Libre Baskerville", serif;
 
   font-size: 16.5px;
   font-weight: 400;
@@ -151,7 +147,6 @@ h1 {
 a,
 a:visited,
 a:active,
-.nav a,
 .links a,
 .cv-link,
 .contact a,
@@ -162,7 +157,6 @@ a:active,
 }
 
 a:hover,
-.nav a:hover,
 .links a:hover,
 .cv-link:hover,
 .contact a:hover,
@@ -191,13 +185,6 @@ a:hover,
   margin-top: 20px;
 }
 
-/*
-  NORMAL:
-  - white background
-  - light gray border
-  - black text
-*/
-
 .contact-button,
 .contact-button:visited {
   display: inline-block;
@@ -212,8 +199,10 @@ a:hover,
   color: var(--text) !important;
 
   font-family: "Lato", Arial, sans-serif;
+
   font-size: 15px;
   font-weight: 700;
+
   line-height: 1.2;
 
   text-decoration: none !important;
@@ -225,13 +214,6 @@ a:hover,
     color 0.18s ease,
     border-color 0.18s ease;
 }
-
-/*
-  HOVER:
-  - orange border
-  - orange text
-  - faint orange background
-*/
 
 .contact-button:hover {
   border-color: var(--link);
@@ -261,8 +243,14 @@ a:hover,
 ========================= */
 
 .nav {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+
+  gap: 30px;
+
   margin: 26px 0 34px;
-  padding: 12px 0;
+  padding: 13px 0;
 
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
@@ -270,12 +258,93 @@ a:hover,
   font-family: "Lato", Arial, sans-serif;
 }
 
-.nav a {
-  margin-right: 16px;
+/*
+  Navigation:
+  - smaller
+  - uppercase
+  - black
+  - no orange text
+*/
+
+.nav a,
+.nav a:visited,
+.nav a:active {
+  position: relative;
+
+  display: inline-block;
+
+  margin: 0;
+  padding: 5px 0 8px;
+
+  color: var(--text) !important;
+
+  font-family: "Lato", Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+
+  line-height: 1;
+
+  letter-spacing: 0.7px;
+
+  text-transform: uppercase;
 
   white-space: nowrap;
 
-  color: var(--link);
+  text-decoration: none !important;
+}
+
+/*
+  Orange underline.
+  Hidden by default.
+*/
+
+.nav a::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  bottom: 0;
+
+  width: 100%;
+  height: 2px;
+
+  background-color: var(--link);
+
+  transform: scaleX(0);
+  transform-origin: left center;
+
+  transition: transform 0.18s ease;
+}
+
+/*
+  Hover:
+  text stays black,
+  orange underline appears.
+*/
+
+.nav a:hover {
+  color: var(--text) !important;
+
+  text-decoration: none !important;
+}
+
+.nav a:hover::after {
+  transform: scaleX(1);
+}
+
+/*
+  Keyboard navigation
+*/
+
+.nav a:focus-visible {
+  color: var(--text) !important;
+
+  outline: none;
+}
+
+.nav a:focus-visible::after {
+  transform: scaleX(1);
 }
 
 /* =========================
@@ -382,6 +451,7 @@ h3 {
   font-weight: 700;
 
   line-height: 1.25;
+
   letter-spacing: 0;
 
   margin-bottom: 16px;
@@ -439,6 +509,7 @@ h3 {
   color: var(--link);
 
   font-family: "Lato", Arial, sans-serif;
+
   font-size: inherit;
   font-weight: 400;
 
@@ -519,6 +590,7 @@ h3 {
 
   .hero {
     grid-template-columns: 1fr;
+
     gap: 18px;
   }
 
@@ -549,10 +621,21 @@ h3 {
     margin-bottom: 5px;
   }
 
+  /* Navigation stays horizontal where possible */
+  .nav {
+    gap: 18px;
+
+    padding: 11px 0;
+  }
+
   .nav a {
     display: inline-block;
 
-    margin-bottom: 6px;
+    font-size: 12px;
+
+    letter-spacing: 0.6px;
+
+    margin: 0;
   }
 
   .contact-buttons {
