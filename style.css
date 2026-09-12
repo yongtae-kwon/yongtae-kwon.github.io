@@ -153,7 +153,7 @@ h2 {
   font-size: 24px;
   font-weight: 700;
   line-height: 1.25;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.25px;
   margin: 0 0 14px;
   padding-bottom: 0;
   border-bottom: none;
@@ -161,7 +161,7 @@ h2 {
 
 h3 {
   font-size: 18px;
-  font-weight: 500;
+  font-weight: 400;
   line-height: 1.35;
   margin: 0 0 4px;
 }
@@ -177,9 +177,9 @@ h3 {
 .paper h3 {
   margin-left: 0;
   padding-left: 0;
-  font-size: 19px;
+  font-size: 18px;
   font-weight: 700;
-  line-height: 1.15;
+  line-height: 1.25;
 }
 
 .paper > p,
@@ -208,6 +208,50 @@ h3 {
 .links a,
 .toggle {
   margin-right: 8px;
+}
+
+/* =========================
+   WORK IN PROGRESS
+========================= */
+
+#work-in-progress > h2,
+#workinprogress > h2,
+.work-in-progress > h2 {
+  font-size: 21px;
+  line-height: 1.25;
+  letter-spacing: 0;
+  margin-bottom: 16px;
+}
+
+#work-in-progress .paper h3,
+#workinprogress .paper h3,
+.work-in-progress .paper h3 {
+  font-size: 17px;
+  line-height: 1.3;
+  font-weight: 700;
+}
+
+#work-in-progress .paper,
+#workinprogress .paper,
+.work-in-progress .paper {
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 26px;
+}
+
+#work-in-progress .coauthors,
+#work-in-progress .note,
+#work-in-progress .links,
+#work-in-progress .toggle,
+#workinprogress .coauthors,
+#workinprogress .note,
+#workinprogress .links,
+#workinprogress .toggle,
+.work-in-progress .coauthors,
+.work-in-progress .note,
+.work-in-progress .links,
+.work-in-progress .toggle {
+  font-size: 16px;
 }
 
 /* =========================
@@ -311,5 +355,23 @@ h3 {
   .paper .toggle-content,
   .paper .note {
     padding-left: 14px;
+  }
+
+  #work-in-progress > h2,
+  #workinprogress > h2,
+  .work-in-progress > h2 {
+    font-size: 20px;
+  }
+
+  #work-in-progress .paper h3,
+  #workinprogress .paper h3,
+  .work-in-progress .paper h3 {
+    font-size: 16px;
+  }
+
+  #work-in-progress .paper,
+  #workinprogress .paper,
+  .work-in-progress .paper {
+    font-size: 15px;
   }
 }
