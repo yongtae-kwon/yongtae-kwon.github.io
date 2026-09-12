@@ -566,16 +566,21 @@ h3 {
   font-family: "Lato", Arial, sans-serif;
 }
 
+/* =========================
+   RESEARCH SUBSECTION TITLES
+========================= */
+
 /*
-  Optional subsection heading:
-  PEER-REVIEWED PUBLICATIONS,
-  WORKING PAPERS, etc.
+  More space ABOVE each subsection.
+
+  Only ONE horizontal rule is used:
+  the bottom border of the subsection title.
 */
 
 .research-group-title {
-  margin: 6px 0 14px;
+  margin: 48px 0 0;
 
-  padding-bottom: 9px;
+  padding-bottom: 10px;
 
   border-bottom: 1px solid var(--research-line);
 
@@ -593,6 +598,16 @@ h3 {
   text-transform: uppercase;
 }
 
+/*
+  First subsection gets slightly less
+  top space because Research is already
+  immediately above it.
+*/
+
+#research > h2 + .research-group-title {
+  margin-top: 32px;
+}
+
 /* =========================
    RESEARCH LIST
 ========================= */
@@ -604,7 +619,13 @@ h3 {
 
   padding: 0;
 
-  border-top: 1px solid var(--research-line);
+  /*
+    IMPORTANT:
+    no border-top here.
+    This removes the double line.
+  */
+
+  border-top: none;
 }
 
 /* =========================
@@ -615,14 +636,13 @@ h3 {
   margin: 0;
 
   border: none;
+
   border-bottom: 1px solid var(--research-line);
 
   background: transparent;
 }
 
-/*
-  Remove default details triangle
-*/
+/* Remove native details marker */
 
 .research-item > summary {
   list-style: none;
@@ -643,7 +663,7 @@ h3 {
 
   width: 100%;
 
-  padding: 20px 38px 20px 0;
+  padding: 22px 38px 22px 0;
 
   cursor: pointer;
 
@@ -659,7 +679,7 @@ h3 {
 ========================= */
 
 .research-title {
-  margin: 0 0 8px;
+  margin: 0 0 9px;
 
   font-family: "Lato", Arial, sans-serif;
 
@@ -668,11 +688,6 @@ h3 {
 
   line-height: 1.35;
 }
-
-/*
-  Title itself is a hyperlink.
-  Keep it black normally.
-*/
 
 .research-title a,
 .research-title a:visited {
@@ -691,13 +706,23 @@ h3 {
    PAPER META INFORMATION
 ========================= */
 
+/*
+  Desired order:
+
+  JOURNAL, volume/pages    with Coauthor One and Coauthor Two
+
+  Example:
+
+  Journal of Politics, 206, 104698    with Jane Doe and John Doe
+*/
+
 .research-meta {
   display: flex;
   flex-wrap: wrap;
 
   align-items: baseline;
 
-  gap: 5px;
+  gap: 0;
 
   margin: 0;
 
@@ -711,38 +736,8 @@ h3 {
   line-height: 1.5;
 }
 
-/* Year */
-
-.research-year {
-  margin-right: 5px;
-
-  color: var(--research-blue);
-
-  font-weight: 700;
-
-  letter-spacing: 0.4px;
-}
-
 /*
-  Authors remain normal weight.
-*/
-
-.research-authors {
-  font-weight: 400;
-
-  color: #606060;
-}
-
-/*
-  Separator between authors and journal.
-*/
-
-.research-separator {
-  color: #888888;
-}
-
-/*
-  ONLY journal is bold.
+  Journal name ONLY is bold.
 */
 
 .research-journal {
@@ -751,7 +746,10 @@ h3 {
   font-weight: 700;
 }
 
-/* Optional volume/pages after journal */
+/*
+  Volume / issue / pages / article number
+  immediately follow the journal.
+*/
 
 .research-citation {
   color: #606060;
@@ -759,16 +757,32 @@ h3 {
   font-weight: 400;
 }
 
+/*
+  Authors come after citation information
+  with a noticeable but restrained gap.
+*/
+
+.research-authors {
+  margin-left: 16px;
+
+  color: #606060;
+
+  font-weight: 400;
+}
+
+/*
+  Legacy classes retained harmlessly in case
+  an older research item still contains them.
+*/
+
+.research-year,
+.research-separator {
+  display: none;
+}
+
 /* =========================
    CHEVRON ICON
 ========================= */
-
-/*
-  Replaces the + / - symbol.
-
-  This creates the small orange downward
-  chevron from your reference image.
-*/
 
 .research-summary::after {
   content: "";
@@ -793,13 +807,11 @@ h3 {
     border-color 0.18s ease;
 }
 
-/* Open state: arrow points upward */
+/* Open state */
 
 .research-item[open] > .research-summary::after {
   transform: translateY(-25%) rotate(225deg);
 }
-
-/* Slight hover response */
 
 .research-summary:hover::after {
   border-color: var(--link);
@@ -1008,9 +1020,15 @@ h3 {
   ========================= */
 
   .research-group-title {
+    margin-top: 40px;
+
     font-size: 13px;
 
     letter-spacing: 1.3px;
+  }
+
+  #research > h2 + .research-group-title {
+    margin-top: 28px;
   }
 
   .research-summary {
@@ -1027,6 +1045,10 @@ h3 {
     font-size: 14px;
 
     line-height: 1.5;
+  }
+
+  .research-authors {
+    margin-left: 12px;
   }
 
   .research-summary::after {
