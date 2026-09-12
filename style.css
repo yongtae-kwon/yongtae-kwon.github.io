@@ -10,6 +10,9 @@
 
   --border: #dddddd;
   --bg: #ffffff;
+
+  --research-blue: #203f63;
+  --research-line: #dedede;
 }
 
 /* =========================
@@ -49,7 +52,6 @@ body {
 
 .hero {
   display: grid;
-
   grid-template-columns: 260px 1fr;
 
   gap: 42px;
@@ -152,8 +154,7 @@ a:visited,
 a:active,
 .links a,
 .cv-link,
-.contact a,
-.toggle {
+.contact a {
   color: var(--link);
 
   text-decoration: none;
@@ -162,8 +163,7 @@ a:active,
 a:hover,
 .links a:hover,
 .cv-link:hover,
-.contact a:hover,
-.toggle:hover {
+.contact a:hover {
   color: var(--link);
 
   text-decoration: underline;
@@ -292,7 +292,7 @@ a:hover,
   text-decoration: none !important;
 }
 
-/* underline */
+/* Orange underline */
 
 .nav a::after {
   content: "";
@@ -308,13 +308,10 @@ a:hover,
   background-color: var(--link);
 
   transform: scaleX(0);
-
   transform-origin: left center;
 
   transition: transform 0.18s ease;
 }
-
-/* hover */
 
 .nav a:hover {
   color: var(--text) !important;
@@ -325,8 +322,6 @@ a:hover,
 .nav a:hover::after {
   transform: scaleX(1);
 }
-
-/* keyboard */
 
 .nav a:focus-visible {
   outline: none;
@@ -342,23 +337,13 @@ a:hover,
    ACTIVE NAVIGATION TAB
 ========================= */
 
-/*
-  These rules keep the underline visible
-  for whichever content panel is active.
-*/
-
 body:has(#about:target)
 .nav a[href="#about"]::after {
   transform: scaleX(1);
 }
 
-body:has(#working-papers:target)
-.nav a[href="#working-papers"]::after {
-  transform: scaleX(1);
-}
-
-body:has(#work-in-progress:target)
-.nav a[href="#work-in-progress"]::after {
+body:has(#research:target)
+.nav a[href="#research"]::after {
   transform: scaleX(1);
 }
 
@@ -367,10 +352,7 @@ body:has(#teaching:target)
   transform: scaleX(1);
 }
 
-/*
-  BIO is the default tab when the URL
-  contains no section hash.
-*/
+/* Bio is default */
 
 body:not(:has(section:target))
 .nav a[href="#about"]::after {
@@ -380,14 +362,6 @@ body:not(:has(section:target))
 /* =========================
    CONTENT PANEL ARCHITECTURE
 ========================= */
-
-/*
-  IMPORTANT:
-
-  All page sections are hidden by default.
-  Clicking a nav link reveals its matching
-  section in this same content area.
-*/
 
 section {
   display: none;
@@ -399,34 +373,26 @@ section {
   font-family: "Lato", Arial, sans-serif;
 }
 
-/*
-  BIO is shown when the page first opens.
-*/
+/* Default panel */
 
 #about {
   display: block;
 }
 
-/*
-  Once another section becomes :target,
-  hide the default Bio panel.
-*/
+/* Hide Bio when another panel is selected */
 
 body:has(section:target) #about:not(:target) {
   display: none;
 }
 
-/*
-  Show whichever section was selected
-  from the navigation.
-*/
+/* Show selected panel */
 
 section:target {
   display: block;
 }
 
 /* =========================
-   CONTENT PANEL
+   PANEL ANIMATION
 ========================= */
 
 section:target,
@@ -497,165 +463,414 @@ h3 {
 }
 
 /* =========================
-   PAPERS / PROJECTS
+   BIO GRID
 ========================= */
 
-.paper {
-  margin-bottom: 30px;
+.bio-grid {
+  display: grid;
 
-  font-family: "Lato", Arial, sans-serif;
-}
+  grid-template-columns: 0.85fr 1.15fr;
 
-.paper h3 {
-  margin-left: 0;
-  padding-left: 0;
+  gap: 54px;
 
-  font-family: "Lato", Arial, sans-serif;
-
-  font-size: 18px;
-  font-weight: 700;
-
-  line-height: 1.25;
-}
-
-.paper > p,
-.paper > div,
-.paper .coauthors,
-.paper .links,
-.paper .toggle-content,
-.paper .note {
-  padding-left: 18px;
-}
-
-.paper > h3 {
-  padding-left: 0;
-}
-
-.coauthors,
-.note {
-  margin: 0 0 8px 0;
-
-  color: var(--muted);
-}
-
-.links {
-  margin: 4px 0 10px 0;
-}
-
-.links a,
-.toggle {
-  margin-right: 8px;
+  margin-top: 90px;
 }
 
 /* =========================
-   WORK IN PROGRESS
+   BIO COLUMN HEADINGS
 ========================= */
 
-#work-in-progress > h2,
-#workinprogress > h2,
-.work-in-progress > h2 {
+.bio-heading {
+  margin: 0 0 20px;
+
   font-family: "Lato", Arial, sans-serif;
 
-  font-size: 21px;
+  font-size: 15px;
   font-weight: 700;
 
-  line-height: 1.25;
+  line-height: 1.2;
 
-  letter-spacing: 0;
+  letter-spacing: 1.5px;
 
-  margin-bottom: 16px;
+  text-transform: uppercase;
+
+  color: #5f5f5f;
 }
 
-#work-in-progress .paper h3,
-#workinprogress .paper h3,
-.work-in-progress .paper h3 {
+/* =========================
+   RESEARCH INTERESTS
+========================= */
+
+.bio-list {
+  margin: 0;
+
+  padding-left: 22px;
+}
+
+.bio-list li {
+  margin-bottom: 13px;
+
+  font-family: "Lato", Arial, sans-serif;
+
+  font-size: 17px;
+  font-weight: 400;
+
+  line-height: 1.4;
+
+  color: var(--text);
+}
+
+/* =========================
+   EDUCATION
+========================= */
+
+.education-list {
+  margin: 0;
+
+  padding-left: 22px;
+}
+
+.education-list li {
+  margin-bottom: 17px;
+
+  font-family: "Lato", Arial, sans-serif;
+
+  font-size: 17px;
+
+  line-height: 1.35;
+
+  color: var(--text);
+}
+
+.degree-line {
+  margin-bottom: 4px;
+}
+
+.degree-line strong {
+  font-weight: 700;
+}
+
+.school-line {
+  color: #666666;
+
+  font-size: 16px;
+
+  line-height: 1.35;
+}
+
+/* =========================================================
+   RESEARCH PANEL
+========================================================= */
+
+#research {
+  font-family: "Lato", Arial, sans-serif;
+}
+
+/*
+  Optional subsection heading:
+  PEER-REVIEWED PUBLICATIONS,
+  WORKING PAPERS, etc.
+*/
+
+.research-group-title {
+  margin: 6px 0 14px;
+
+  padding-bottom: 9px;
+
+  border-bottom: 1px solid var(--research-line);
+
+  color: #5f5f5f;
+
+  font-family: "Lato", Arial, sans-serif;
+
+  font-size: 14px;
+  font-weight: 700;
+
+  line-height: 1.2;
+
+  letter-spacing: 1.5px;
+
+  text-transform: uppercase;
+}
+
+/* =========================
+   RESEARCH LIST
+========================= */
+
+.research-list {
+  width: 100%;
+
+  margin: 0;
+
+  padding: 0;
+
+  border-top: 1px solid var(--research-line);
+}
+
+/* =========================
+   INDIVIDUAL RESEARCH ITEM
+========================= */
+
+.research-item {
+  margin: 0;
+
+  border: none;
+  border-bottom: 1px solid var(--research-line);
+
+  background: transparent;
+}
+
+/*
+  Remove default details triangle
+*/
+
+.research-item > summary {
+  list-style: none;
+}
+
+.research-item > summary::-webkit-details-marker {
+  display: none;
+}
+
+/* =========================
+   RESEARCH SUMMARY / ROW
+========================= */
+
+.research-summary {
+  position: relative;
+
+  display: block;
+
+  width: 100%;
+
+  padding: 20px 38px 20px 0;
+
+  cursor: pointer;
+
+  user-select: none;
+}
+
+.research-summary:hover {
+  background: transparent;
+}
+
+/* =========================
+   PAPER TITLE
+========================= */
+
+.research-title {
+  margin: 0 0 8px;
+
   font-family: "Lato", Arial, sans-serif;
 
   font-size: 17px;
   font-weight: 700;
 
-  line-height: 1.3;
+  line-height: 1.35;
 }
 
-#work-in-progress .paper,
-#workinprogress .paper,
-.work-in-progress .paper {
-  font-family: "Lato", Arial, sans-serif;
+/*
+  Title itself is a hyperlink.
+  Keep it black normally.
+*/
 
-  font-size: 16px;
+.research-title a,
+.research-title a:visited {
+  color: var(--text);
 
-  line-height: 1.5;
-
-  margin-bottom: 26px;
+  text-decoration: none;
 }
 
-#work-in-progress .coauthors,
-#work-in-progress .note,
-#work-in-progress .links,
-#work-in-progress .toggle,
-#workinprogress .coauthors,
-#workinprogress .note,
-#workinprogress .links,
-#workinprogress .toggle,
-.work-in-progress .coauthors,
-.work-in-progress .note,
-.work-in-progress .links,
-.work-in-progress .toggle {
-  font-size: 16px;
+.research-title a:hover {
+  color: var(--link);
+
+  text-decoration: none;
 }
 
 /* =========================
-   TOGGLE BUTTONS
+   PAPER META INFORMATION
 ========================= */
 
-.toggle {
-  border: none;
+.research-meta {
+  display: flex;
+  flex-wrap: wrap;
 
-  padding: 0;
+  align-items: baseline;
 
-  background: transparent;
+  gap: 5px;
 
-  color: var(--link);
+  margin: 0;
+
+  color: #606060;
 
   font-family: "Lato", Arial, sans-serif;
 
-  font-size: inherit;
+  font-size: 15px;
   font-weight: 400;
 
-  cursor: pointer;
+  line-height: 1.5;
 }
 
-.toggle:hover {
-  color: var(--link);
+/* Year */
 
-  text-decoration: underline;
+.research-year {
+  margin-right: 5px;
+
+  color: var(--research-blue);
+
+  font-weight: 700;
+
+  letter-spacing: 0.4px;
 }
 
-.toggle-content {
-  margin-top: 14px !important;
-  margin-left: 18px !important;
+/*
+  Authors remain normal weight.
+*/
 
-  padding: 22px 28px 22px 32px !important;
+.research-authors {
+  font-weight: 400;
 
-  background: #f1f1f1;
+  color: #606060;
+}
 
-  border-left: 5px solid var(--link);
+/*
+  Separator between authors and journal.
+*/
 
-  border-radius: 0 5px 5px 0;
+.research-separator {
+  color: #888888;
+}
 
-  color: #444444;
+/*
+  ONLY journal is bold.
+*/
+
+.research-journal {
+  color: #555555;
+
+  font-weight: 700;
+}
+
+/* Optional volume/pages after journal */
+
+.research-citation {
+  color: #606060;
+
+  font-weight: 400;
+}
+
+/* =========================
+   CHEVRON ICON
+========================= */
+
+/*
+  Replaces the + / - symbol.
+
+  This creates the small orange downward
+  chevron from your reference image.
+*/
+
+.research-summary::after {
+  content: "";
+
+  position: absolute;
+
+  top: 50%;
+  right: 5px;
+
+  width: 10px;
+  height: 10px;
+
+  border-right: 2.5px solid var(--link);
+  border-bottom: 2.5px solid var(--link);
+
+  transform: translateY(-70%) rotate(45deg);
+
+  transform-origin: center;
+
+  transition:
+    transform 0.18s ease,
+    border-color 0.18s ease;
+}
+
+/* Open state: arrow points upward */
+
+.research-item[open] > .research-summary::after {
+  transform: translateY(-25%) rotate(225deg);
+}
+
+/* Slight hover response */
+
+.research-summary:hover::after {
+  border-color: var(--link);
+}
+
+/* =========================
+   ABSTRACT
+========================= */
+
+.research-abstract {
+  margin: 0 0 22px;
+
+  padding: 3px 20px 2px 20px;
+
+  border-left: 3px solid #eeeeee;
+
+  color: #333333;
 
   font-family: "Lato", Arial, sans-serif;
 
-  line-height: 1.75;
+  font-size: 16px;
+  font-weight: 400;
+
+  line-height: 1.65;
 }
 
-.toggle-content p {
+.research-abstract-label {
+  display: block;
+
+  margin: 0 0 10px;
+
+  color: #5d5d5d;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  line-height: 1;
+
+  letter-spacing: 1.4px;
+
+  text-transform: uppercase;
+}
+
+.research-abstract p {
   margin: 0;
 }
 
-.hidden {
-  display: none;
+/* =========================
+   OPTIONAL RESEARCH LINKS
+========================= */
+
+.research-links {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 12px;
+
+  margin-top: 14px;
+}
+
+.research-links a {
+  color: var(--link);
+
+  font-size: 14px;
+  font-weight: 700;
+
+  text-decoration: none;
+}
+
+.research-links a:hover {
+  text-decoration: underline;
 }
 
 /* =========================
@@ -731,6 +946,10 @@ h3 {
     margin-bottom: 5px;
   }
 
+  /* =========================
+     MOBILE NAV
+  ========================= */
+
   .nav {
     gap: 18px;
 
@@ -745,6 +964,10 @@ h3 {
     letter-spacing: 0.6px;
   }
 
+  /* =========================
+     MOBILE CONTACT BUTTONS
+  ========================= */
+
   .contact-buttons {
     gap: 10px;
   }
@@ -755,132 +978,16 @@ h3 {
     font-size: 14px;
   }
 
-  .paper > p,
-  .paper > div,
-  .paper .coauthors,
-  .paper .links,
-  .paper .toggle-content,
-  .paper .note {
-    padding-left: 14px;
-  }
-
-  #work-in-progress > h2,
-  #workinprogress > h2,
-  .work-in-progress > h2 {
-    font-size: 20px;
-  }
-
-  #work-in-progress .paper h3,
-  #workinprogress .paper h3,
-  .work-in-progress .paper h3 {
-    font-size: 16px;
-  }
-
-  #work-in-progress .paper,
-  #workinprogress .paper,
-  .work-in-progress .paper {
-    font-size: 15px;
-  }
-}
-
-/* =========================
-   BIO GRID
-========================= */
-
-.bio-grid {
-  display: grid;
-  grid-template-columns: 0.85fr 1.15fr;
-  gap: 54px;
-
-  margin-top: 90px;
-}
-
-/* =========================
-   BIO COLUMN HEADINGS
-========================= */
-
-.bio-heading {
-  margin: 0 0 20px;
-
-  font-family: "Lato", Arial, sans-serif;
-  font-size: 15px;
-  font-weight: 700;
-
-  line-height: 1.2;
-
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-
-  color: #5f5f5f;
-}
-
-/* =========================
-   RESEARCH INTERESTS
-========================= */
-
-.bio-list {
-  margin: 0;
-  padding-left: 22px;
-}
-
-.bio-list li {
-  margin-bottom: 13px;
-
-  font-family: "Lato", Arial, sans-serif;
-  font-size: 17px;
-  font-weight: 400;
-
-  line-height: 1.4;
-
-  color: var(--text);
-}
-
-/* =========================
-   EDUCATION
-========================= */
-
-.education-list {
-  margin: 0;
-  padding-left: 22px;
-}
-
-.education-list li {
-  margin-bottom: 17px;
-
-  font-family: "Lato", Arial, sans-serif;
-  font-size: 17px;
-
-  line-height: 1.35;
-
-  color: var(--text);
-}
-
-.degree-line {
-  margin-bottom: 4px;
-}
-
-.degree-line strong {
-  font-weight: 700;
-}
-
-.school-line {
-  color: #666666;
-
-  font-size: 16px;
-
-  line-height: 1.35;
-}
-
-/* =========================
-   MOBILE BIO GRID
-========================= */
-
-@media (max-width: 640px) {
+  /* =========================
+     MOBILE BIO
+  ========================= */
 
   .bio-grid {
     grid-template-columns: 1fr;
 
     gap: 34px;
+
+    margin-top: 55px;
   }
 
   .bio-heading {
@@ -894,5 +1001,48 @@ h3 {
 
   .school-line {
     font-size: 15px;
+  }
+
+  /* =========================
+     MOBILE RESEARCH
+  ========================= */
+
+  .research-group-title {
+    font-size: 13px;
+
+    letter-spacing: 1.3px;
+  }
+
+  .research-summary {
+    padding: 18px 32px 18px 0;
+  }
+
+  .research-title {
+    font-size: 16px;
+
+    line-height: 1.4;
+  }
+
+  .research-meta {
+    font-size: 14px;
+
+    line-height: 1.5;
+  }
+
+  .research-summary::after {
+    right: 3px;
+
+    width: 9px;
+    height: 9px;
+  }
+
+  .research-abstract {
+    margin-bottom: 20px;
+
+    padding: 2px 10px 2px 15px;
+
+    font-size: 15px;
+
+    line-height: 1.6;
   }
 }
