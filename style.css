@@ -1049,22 +1049,21 @@ h3 {
   }
 }
 
-* =========================================================
-   RESEARCH STATUS BADGES
+/* =========================================================
+   RESEARCH STATUS BADGE
 ========================================================= */
 
 .research-status {
   display: inline-block;
 
-  margin-left: 12px;
+  margin-left: 16px;
   padding: 5px 10px;
 
-  border: 1.5px solid var(--border);
-  border-radius: 6px;
+  border-radius: 5px;
 
-  background: #ffffff;
+  background: var(--link-soft);
 
-  color: var(--text);
+  color: var(--link);
 
   font-family: "Lato", Arial, sans-serif;
   font-size: 12px;
@@ -1072,23 +1071,10 @@ h3 {
 
   line-height: 1;
 
-  letter-spacing: 1.1px;
+  letter-spacing: 1px;
   text-transform: uppercase;
 
   white-space: nowrap;
 
   vertical-align: middle;
-
-  transition:
-    border-color 0.18s ease,
-    background-color 0.18s ease,
-    color 0.18s ease;
-}
-
-.research-status:hover {
-  border-color: var(--link);
-
-  background: var(--link-soft);
-
-  color: var(--link);
 }
