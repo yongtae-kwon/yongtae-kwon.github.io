@@ -782,3 +782,117 @@ h3 {
     font-size: 15px;
   }
 }
+
+/* =========================
+   BIO GRID
+========================= */
+
+.bio-grid {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: 54px;
+
+  margin-top: 8px;
+}
+
+/* =========================
+   BIO COLUMN HEADINGS
+========================= */
+
+.bio-heading {
+  margin: 0 0 20px;
+
+  font-family: "Lato", Arial, sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+
+  line-height: 1.2;
+
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+
+  color: #5f5f5f;
+}
+
+/* =========================
+   RESEARCH INTERESTS
+========================= */
+
+.bio-list {
+  margin: 0;
+  padding-left: 22px;
+}
+
+.bio-list li {
+  margin-bottom: 13px;
+
+  font-family: "Lato", Arial, sans-serif;
+  font-size: 17px;
+  font-weight: 400;
+
+  line-height: 1.4;
+
+  color: var(--text);
+}
+
+/* =========================
+   EDUCATION
+========================= */
+
+.education-list {
+  margin: 0;
+  padding-left: 22px;
+}
+
+.education-list li {
+  margin-bottom: 17px;
+
+  font-family: "Lato", Arial, sans-serif;
+  font-size: 17px;
+
+  line-height: 1.35;
+
+  color: var(--text);
+}
+
+.degree-line {
+  margin-bottom: 4px;
+}
+
+.degree-line strong {
+  font-weight: 700;
+}
+
+.school-line {
+  color: #666666;
+
+  font-size: 16px;
+
+  line-height: 1.35;
+}
+
+/* =========================
+   MOBILE BIO GRID
+========================= */
+
+@media (max-width: 640px) {
+
+  .bio-grid {
+    grid-template-columns: 1fr;
+
+    gap: 34px;
+  }
+
+  .bio-heading {
+    font-size: 14px;
+  }
+
+  .bio-list li,
+  .education-list li {
+    font-size: 16px;
+  }
+
+  .school-line {
+    font-size: 15px;
+  }
+}
