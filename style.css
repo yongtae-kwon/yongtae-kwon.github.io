@@ -21,7 +21,7 @@
 }
 
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: auto;
 }
 
 body {
@@ -38,6 +38,7 @@ body {
 
 .page {
   max-width: 760px;
+
   margin: 42px auto 80px;
   padding: 0 24px;
 }
@@ -48,7 +49,9 @@ body {
 
 .hero {
   display: grid;
+
   grid-template-columns: 260px 1fr;
+
   gap: 42px;
 
   align-items: start;
@@ -66,12 +69,12 @@ body {
 
   padding: 0;
 
-  /* Align image with top of name */
   margin: -8px 0 0 0;
 
   background: none;
 
   border-radius: 10px;
+
   overflow: hidden;
 }
 
@@ -227,6 +230,7 @@ a:hover,
 
 .contact-button:focus-visible {
   outline: 2px solid var(--link);
+
   outline-offset: 3px;
 }
 
@@ -249,7 +253,8 @@ a:hover,
 
   gap: 30px;
 
-  margin: 26px 0 34px;
+  margin: 26px 0 30px;
+
   padding: 13px 0;
 
   border-top: 1px solid var(--border);
@@ -257,14 +262,6 @@ a:hover,
 
   font-family: "Lato", Arial, sans-serif;
 }
-
-/*
-  Navigation:
-  - smaller
-  - uppercase
-  - black
-  - no orange text
-*/
 
 .nav a,
 .nav a:visited,
@@ -274,11 +271,13 @@ a:hover,
   display: inline-block;
 
   margin: 0;
+
   padding: 5px 0 8px;
 
   color: var(--text) !important;
 
   font-family: "Lato", Arial, sans-serif;
+
   font-size: 14px;
   font-weight: 700;
 
@@ -293,10 +292,7 @@ a:hover,
   text-decoration: none !important;
 }
 
-/*
-  Orange underline.
-  Hidden by default.
-*/
+/* underline */
 
 .nav a::after {
   content: "";
@@ -312,16 +308,13 @@ a:hover,
   background-color: var(--link);
 
   transform: scaleX(0);
+
   transform-origin: left center;
 
   transition: transform 0.18s ease;
 }
 
-/*
-  Hover:
-  text stays black,
-  orange underline appears.
-*/
+/* hover */
 
 .nav a:hover {
   color: var(--text) !important;
@@ -333,14 +326,12 @@ a:hover,
   transform: scaleX(1);
 }
 
-/*
-  Keyboard navigation
-*/
+/* keyboard */
 
 .nav a:focus-visible {
-  color: var(--text) !important;
-
   outline: none;
+
+  color: var(--text) !important;
 }
 
 .nav a:focus-visible::after {
@@ -348,12 +339,116 @@ a:hover,
 }
 
 /* =========================
-   SECTIONS
+   ACTIVE NAVIGATION TAB
 ========================= */
 
-section {
-  margin-bottom: 52px;
+/*
+  These rules keep the underline visible
+  for whichever content panel is active.
+*/
+
+body:has(#about:target)
+.nav a[href="#about"]::after {
+  transform: scaleX(1);
 }
+
+body:has(#working-papers:target)
+.nav a[href="#working-papers"]::after {
+  transform: scaleX(1);
+}
+
+body:has(#work-in-progress:target)
+.nav a[href="#work-in-progress"]::after {
+  transform: scaleX(1);
+}
+
+body:has(#teaching:target)
+.nav a[href="#teaching"]::after {
+  transform: scaleX(1);
+}
+
+/*
+  BIO is the default tab when the URL
+  contains no section hash.
+*/
+
+body:not(:has(section:target))
+.nav a[href="#about"]::after {
+  transform: scaleX(1);
+}
+
+/* =========================
+   CONTENT PANEL ARCHITECTURE
+========================= */
+
+/*
+  IMPORTANT:
+
+  All page sections are hidden by default.
+  Clicking a nav link reveals its matching
+  section in this same content area.
+*/
+
+section {
+  display: none;
+
+  margin: 0;
+
+  padding: 0 0 32px;
+
+  font-family: "Lato", Arial, sans-serif;
+}
+
+/*
+  BIO is shown when the page first opens.
+*/
+
+#about {
+  display: block;
+}
+
+/*
+  Once another section becomes :target,
+  hide the default Bio panel.
+*/
+
+body:has(section:target) #about:not(:target) {
+  display: none;
+}
+
+/*
+  Show whichever section was selected
+  from the navigation.
+*/
+
+section:target {
+  display: block;
+}
+
+/* =========================
+   CONTENT PANEL
+========================= */
+
+section:target,
+#about {
+  animation: panelFade 0.18s ease;
+}
+
+@keyframes panelFade {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================
+   SECTION HEADINGS
+========================= */
 
 h2,
 h3 {
@@ -370,12 +465,14 @@ h2 {
   font-weight: 700;
 
   line-height: 1.25;
+
   letter-spacing: 0;
 
-  margin: 0 0 14px;
-  padding-bottom: 0;
+  margin: 0 0 18px;
 
-  border-bottom: none;
+  padding: 0;
+
+  border: none;
 }
 
 h3 {
@@ -385,6 +482,18 @@ h3 {
   line-height: 1.35;
 
   margin: 0 0 4px;
+}
+
+/* =========================
+   BIO
+========================= */
+
+#about {
+  font-family: "Lato", Arial, sans-serif;
+}
+
+#about p:first-of-type {
+  margin-top: 0;
 }
 
 /* =========================
@@ -531,6 +640,7 @@ h3 {
   background: #f1f1f1;
 
   border-left: 5px solid var(--link);
+
   border-radius: 0 5px 5px 0;
 
   color: #444444;
@@ -621,21 +731,18 @@ h3 {
     margin-bottom: 5px;
   }
 
-  /* Navigation stays horizontal where possible */
   .nav {
     gap: 18px;
 
     padding: 11px 0;
+
+    margin-bottom: 26px;
   }
 
   .nav a {
-    display: inline-block;
-
     font-size: 12px;
 
     letter-spacing: 0.6px;
-
-    margin: 0;
   }
 
   .contact-buttons {
