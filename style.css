@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap');
+
 :root {
   --text: #111111;
   --muted: #777777;
@@ -18,7 +20,7 @@ body {
   margin: 0;
   background: var(--bg);
   color: var(--text);
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: "Libre Baskerville", serif;
   font-size: 18px;
   font-weight: 400;
   line-height: 1.45;
@@ -63,7 +65,7 @@ body {
 }
 
 h1 {
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: "Libre Baskerville", serif;
   font-size: 32px;
   font-weight: 700;
   line-height: 1.15;
@@ -137,7 +139,7 @@ a:hover,
 h1,
 h2,
 h3 {
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: "Libre Baskerville", serif;
 }
 
 section {
@@ -217,7 +219,7 @@ h3 {
   padding: 0;
   background: transparent;
   color: var(--link) !important;
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: "Libre Baskerville", serif;
   font-size: inherit;
   font-weight: 400;
   cursor: pointer;
