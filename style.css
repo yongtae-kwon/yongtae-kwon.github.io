@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Libre+Baskerville:wght@400;700&display=swap');
 
 :root {
   --text: #111111;
@@ -6,7 +6,14 @@
   --link: #BF5700;
   --border: #dddddd;
   --bg: #ffffff;
+
+  /* Very light version of UT orange for hover backgrounds */
+  --link-soft: rgba(191, 87, 0, 0.08);
 }
+
+/* =========================
+   GLOBAL
+========================= */
 
 * {
   box-sizing: border-box;
@@ -20,7 +27,8 @@ body {
   margin: 0;
   background: var(--bg);
   color: var(--text);
-  font-family: "Libre Baskerville", serif;
+
+  font-family: "Lato", Arial, sans-serif;
   font-size: 18px;
   font-weight: 400;
   line-height: 1.45;
@@ -49,6 +57,7 @@ body {
   height: 325px;
   padding: 0;
   margin: 0;
+
   background: none;
   border-radius: 10px;
   overflow: hidden;
@@ -57,12 +66,20 @@ body {
 .profile-photo {
   width: 260px;
   height: 325px;
+
   display: block;
+
   object-fit: cover;
   object-position: center top;
+
   background: none;
   border-radius: 10px;
 }
+
+/* =========================
+   NAME / CREDENTIALS
+   Libre Baskerville only
+========================= */
 
 h1 {
   font-family: "Libre Baskerville", serif;
@@ -70,11 +87,13 @@ h1 {
   font-weight: 700;
   line-height: 1.15;
   letter-spacing: -0.6px;
+
   margin: 0 0 12px;
 }
 
 .role,
 .institution {
+  font-family: "Libre Baskerville", serif;
   margin: 0 0 5px;
   color: var(--text);
 }
@@ -82,10 +101,12 @@ h1 {
 .contact {
   margin-top: 20px;
   color: var(--text);
+
+  font-family: "Lato", Arial, sans-serif;
 }
 
 /* =========================
-   LINKS
+   GENERAL LINKS
 ========================= */
 
 a,
@@ -96,7 +117,7 @@ a:active,
 .cv-link,
 .contact a,
 .toggle {
-  color: var(--link) !important;
+  color: var(--link);
   text-decoration: none;
 }
 
@@ -106,7 +127,7 @@ a:hover,
 .cv-link:hover,
 .contact a:hover,
 .toggle:hover {
-  color: var(--link) !important;
+  color: var(--link);
   text-decoration: underline;
 }
 
@@ -116,46 +137,135 @@ a:hover,
 }
 
 /* =========================
+   CONTACT BUTTONS
+========================= */
+
+.contact-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+
+  margin-top: 20px;
+}
+
+/*
+  NORMAL STATE:
+  - white background
+  - light gray outline
+  - black text
+*/
+
+.contact-button,
+.contact-button:visited {
+  display: inline-block;
+
+  padding: 9px 17px;
+
+  border: 1.5px solid var(--border);
+  border-radius: 999px;
+
+  background-color: #ffffff;
+
+  color: var(--text) !important;
+
+  font-family: "Lato", Arial, sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.2;
+
+  text-decoration: none !important;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.18s ease,
+    color 0.18s ease,
+    border-color 0.18s ease;
+}
+
+/*
+  HOVER STATE:
+  - orange outline
+  - orange text
+  - very pale orange fill
+*/
+
+.contact-button:hover {
+  border-color: var(--link);
+
+  background-color: var(--link-soft);
+
+  color: var(--link) !important;
+
+  text-decoration: none !important;
+}
+
+/* Keyboard accessibility */
+.contact-button:focus-visible {
+  outline: 2px solid var(--link);
+  outline-offset: 3px;
+}
+
+/* Keep clicked button from becoming solid orange */
+.contact-button:active {
+  border-color: var(--link);
+  background-color: rgba(191, 87, 0, 0.12);
+  color: var(--link) !important;
+}
+
+/* =========================
    NAVIGATION
 ========================= */
 
 .nav {
   margin: 26px 0 34px;
   padding: 12px 0;
+
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
+
+  font-family: "Lato", Arial, sans-serif;
 }
 
 .nav a {
   margin-right: 16px;
   white-space: nowrap;
-  color: var(--link) !important;
+
+  color: var(--link);
 }
 
 /* =========================
    SECTIONS
 ========================= */
 
-h1,
-h2,
-h3 {
-  font-family: "Libre Baskerville", serif;
-}
-
 section {
   margin-bottom: 52px;
+}
+
+/*
+  All headings below the introductory
+  credentials use Lato.
+*/
+
+h2,
+h3 {
+  font-family: "Lato", Arial, sans-serif;
 }
 
 section > h2,
 h2 {
   display: block;
+
   width: 100%;
+
   font-size: 24px;
   font-weight: 700;
   line-height: 1.25;
-  letter-spacing: 0.25px;
+  letter-spacing: 0;
+
   margin: 0 0 14px;
   padding-bottom: 0;
+
   border-bottom: none;
 }
 
@@ -163,6 +273,7 @@ h3 {
   font-size: 18px;
   font-weight: 400;
   line-height: 1.35;
+
   margin: 0 0 4px;
 }
 
@@ -172,11 +283,15 @@ h3 {
 
 .paper {
   margin-bottom: 30px;
+
+  font-family: "Lato", Arial, sans-serif;
 }
 
 .paper h3 {
   margin-left: 0;
   padding-left: 0;
+
+  font-family: "Lato", Arial, sans-serif;
   font-size: 18px;
   font-weight: 700;
   line-height: 1.25;
@@ -217,25 +332,34 @@ h3 {
 #work-in-progress > h2,
 #workinprogress > h2,
 .work-in-progress > h2 {
+  font-family: "Lato", Arial, sans-serif;
+
   font-size: 21px;
+  font-weight: 700;
   line-height: 1.25;
   letter-spacing: 0;
+
   margin-bottom: 16px;
 }
 
 #work-in-progress .paper h3,
 #workinprogress .paper h3,
 .work-in-progress .paper h3 {
+  font-family: "Lato", Arial, sans-serif;
+
   font-size: 17px;
-  line-height: 1.3;
   font-weight: 700;
+  line-height: 1.3;
 }
 
 #work-in-progress .paper,
 #workinprogress .paper,
 .work-in-progress .paper {
+  font-family: "Lato", Arial, sans-serif;
+
   font-size: 16px;
   line-height: 1.5;
+
   margin-bottom: 26px;
 }
 
@@ -256,34 +380,43 @@ h3 {
 
 /* =========================
    TOGGLE BUTTONS
+   Abstract / details toggles
 ========================= */
 
 .toggle {
   border: none;
   padding: 0;
+
   background: transparent;
-  color: var(--link) !important;
-  font-family: "Libre Baskerville", serif;
+
+  color: var(--link);
+
+  font-family: "Lato", Arial, sans-serif;
   font-size: inherit;
   font-weight: 400;
+
   cursor: pointer;
 }
 
 .toggle:hover {
-  color: var(--link) !important;
+  color: var(--link);
   text-decoration: underline;
 }
 
 .toggle-content {
   margin-top: 14px !important;
   margin-left: 18px !important;
+
   padding: 22px 28px 22px 32px !important;
 
   background: #f1f1f1;
+
   border-left: 5px solid var(--link);
   border-radius: 0 5px 5px 0;
 
   color: #444444;
+
+  font-family: "Lato", Arial, sans-serif;
   line-height: 1.75;
 }
 
@@ -302,12 +435,17 @@ h3 {
 .teaching-subhead {
   margin-top: 18px;
   margin-bottom: 6px;
+
+  font-family: "Lato", Arial, sans-serif;
 }
 
 .teaching-list {
   list-style: none;
+
   padding-left: 0;
   margin-top: 0;
+
+  font-family: "Lato", Arial, sans-serif;
 }
 
 .teaching-list li {
@@ -324,6 +462,7 @@ h3 {
 ========================= */
 
 @media (max-width: 640px) {
+
   .page {
     margin-top: 24px;
   }
@@ -346,6 +485,15 @@ h3 {
   .nav a {
     display: inline-block;
     margin-bottom: 6px;
+  }
+
+  .contact-buttons {
+    gap: 10px;
+  }
+
+  .contact-button {
+    padding: 8px 14px;
+    font-size: 14px;
   }
 
   .paper > p,
@@ -374,49 +522,4 @@ h3 {
   .work-in-progress .paper {
     font-size: 15px;
   }
-}
-
-/* =========================
-   CONTACT BUTTONS
-========================= */
-
-.contact-buttons {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin-top: 20px;
-}
-
-.contact-button {
-  display: inline-block;
-
-  padding: 9px 16px;
-
-  border: 1.5px solid var(--link);
-  border-radius: 999px;
-
-  background: transparent;
-  color: var(--link) !important;
-
-  font-family: "Libre Baskerville", serif;
-  font-size: 15px;
-  font-weight: 700;
-  line-height: 1.2;
-
-  text-decoration: none !important;
-
-  transition:
-    background-color 0.18s ease,
-    color 0.18s ease,
-    border-color 0.18s ease,
-    transform 0.18s ease;
-}
-
-.contact-button:hover {
-  background: var(--link);
-  color: #ffffff !important;
-  border-color: var(--link);
-
-  text-decoration: none !important;
-  transform: translateY(-1px);
 }
