@@ -653,15 +653,14 @@ h3 {
 
 .research-title a,
 .research-title a:visited {
-  color: var(--text);
-
+  color: var(--link);
   text-decoration: none;
 }
 
 .research-title a:hover {
   color: var(--link);
-
-  text-decoration: none;
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
 /* =========================================================
