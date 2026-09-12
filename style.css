@@ -1048,3 +1048,47 @@ h3 {
     font-size: 15px;
   }
 }
+
+* =========================================================
+   RESEARCH STATUS BADGES
+========================================================= */
+
+.research-status {
+  display: inline-block;
+
+  margin-left: 12px;
+  padding: 5px 10px;
+
+  border: 1.5px solid var(--border);
+  border-radius: 6px;
+
+  background: #ffffff;
+
+  color: var(--text);
+
+  font-family: "Lato", Arial, sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+
+  line-height: 1;
+
+  letter-spacing: 1.1px;
+  text-transform: uppercase;
+
+  white-space: nowrap;
+
+  vertical-align: middle;
+
+  transition:
+    border-color 0.18s ease,
+    background-color 0.18s ease,
+    color 0.18s ease;
+}
+
+.research-status:hover {
+  border-color: var(--link);
+
+  background: var(--link-soft);
+
+  color: var(--link);
+}
