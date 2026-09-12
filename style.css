@@ -1,9 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Libre+Baskerville:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
 
 :root {
   --text: #111111;
   --muted: #777777;
-  --credential: #555555;
+  --credential: #777777;
 
   --link: #BF5700;
   --link-soft: rgba(191, 87, 0, 0.08);
@@ -11,24 +11,32 @@
   --border: #dddddd;
   --bg: #ffffff;
 
-  --research-blue: #203f63;
   --research-line: #dedede;
+
+  --sidebar-width: 330px;
 }
 
-/* =========================
+/* =========================================================
    GLOBAL
-========================= */
+========================================================= */
 
 * {
   box-sizing: border-box;
 }
 
 html {
-  scroll-behavior: auto;
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
 }
 
 body {
-  margin: 0;
+  overflow: hidden;
 
   background: var(--bg);
   color: var(--text);
@@ -39,171 +47,173 @@ body {
   line-height: 1.45;
 }
 
-.page {
-  max-width: 760px;
+/* =========================================================
+   MAIN TWO-COLUMN ARCHITECTURE
+========================================================= */
 
-  margin: 42px auto 80px;
-  padding: 0 24px;
+.page {
+  display: grid;
+  grid-template-columns: var(--sidebar-width) minmax(0, 1fr);
+
+  width: 100%;
+  max-width: 1280px;
+  height: 100vh;
+
+  margin: 0 auto;
+  padding: 0;
 }
 
-/* =========================
-   HERO / INTRO
-========================= */
+/* =========================================================
+   LEFT PROFILE PANEL
+========================================================= */
 
 .hero {
-  display: grid;
-  grid-template-columns: 260px 1fr;
+  display: flex;
+  flex-direction: column;
 
-  gap: 42px;
+  width: 100%;
+  height: 100vh;
 
-  align-items: start;
+  padding: 38px 30px 40px;
 
-  margin-bottom: 28px;
+  overflow-y: auto;
+
+  border-right: 1px solid #eeeeee;
+
+  background: #ffffff;
 }
 
-/* =========================
+/* =========================================================
    PROFILE PHOTO
-========================= */
+========================================================= */
 
 .photo-wrap {
-  width: 260px;
-  height: 325px;
+  width: 100%;
+  max-width: 270px;
+
+  aspect-ratio: 4 / 5;
+
+  margin: 0 0 28px;
 
   padding: 0;
 
-  margin: -8px 0 0 0;
-
-  background: none;
-
-  border-radius: 10px;
-
   overflow: hidden;
+
+  border-radius: 8px;
+
+  background: #f4f4f4;
 }
 
 .profile-photo {
-  width: 260px;
-  height: 325px;
-
   display: block;
+
+  width: 100%;
+  height: 100%;
 
   object-fit: cover;
   object-position: center top;
 
-  background: none;
-
-  border-radius: 10px;
+  border-radius: 8px;
 }
 
-/* =========================
+/* =========================================================
+   INTRO
+========================================================= */
+
+.intro {
+  width: 100%;
+}
+
+/* =========================================================
    NAME
-========================= */
+========================================================= */
 
 h1 {
-  font-family: "Libre Baskerville", serif;
+  margin: 0 0 17px;
 
-  font-size: 27px;
+  font-family:
+    "Helvetica Neue",
+    Helvetica,
+    Arial,
+    sans-serif;
+
+  font-size: 31px;
   font-weight: 700;
 
-  line-height: 1.15;
+  line-height: 1.08;
 
-  letter-spacing: -0.5px;
+  letter-spacing: -0.7px;
 
-  margin: 0 0 17px;
+  color: var(--text);
 }
 
-/* =========================
-   CREDENTIALS / INSTITUTION
-========================= */
+/* =========================================================
+   CREDENTIALS
+========================================================= */
 
 .role,
 .institution {
-  font-family: "Libre Baskerville", serif;
+  margin: 0 0 4px;
 
-  font-size: 16.5px;
+  font-family:
+    "Helvetica Neue",
+    Helvetica,
+    Arial,
+    sans-serif;
+
+  font-size: 17px;
   font-weight: 400;
 
+  line-height: 1.35;
+
   color: var(--credential);
-
-  line-height: 1.45;
-
-  margin: 0 0 5px;
 }
 
 .institution:last-of-type {
   margin-bottom: 0;
 }
 
-/* =========================
-   CONTACT
-========================= */
+/* =========================================================
+   LEFT PANEL CONTACT / BUTTON AREA
+========================================================= */
 
 .contact {
-  margin-top: 20px;
-
-  color: var(--text);
+  margin: 26px 0 0;
 
   font-family: "Lato", Arial, sans-serif;
 }
 
-/* =========================
-   GENERAL LINKS
-========================= */
-
-a,
-a:visited,
-a:active,
-.links a,
-.cv-link,
-.contact a {
-  color: var(--link);
-
-  text-decoration: none;
-}
-
-a:hover,
-.links a:hover,
-.cv-link:hover,
-.contact a:hover {
-  color: var(--link);
-
-  text-decoration: underline;
-}
-
-.cv-link {
-  display: inline-block;
-
-  margin-top: 8px;
-}
-
-/* =========================
+/* =========================================================
    CONTACT BUTTONS
-========================= */
+========================================================= */
 
 .contact-buttons {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: flex-start;
 
-  gap: 12px;
+  gap: 10px;
 
-  margin-top: 20px;
+  width: 100%;
+
+  margin-top: 0;
 }
 
 .contact-button,
 .contact-button:visited {
   display: inline-block;
 
-  padding: 9px 17px;
+  padding: 8px 15px;
 
   border: 1.5px solid var(--border);
   border-radius: 999px;
 
-  background-color: #ffffff;
+  background: #ffffff;
 
   color: var(--text) !important;
 
   font-family: "Lato", Arial, sans-serif;
-
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 700;
 
   line-height: 1.2;
@@ -213,15 +223,15 @@ a:hover,
   cursor: pointer;
 
   transition:
+    border-color 0.18s ease,
     background-color 0.18s ease,
-    color 0.18s ease,
-    border-color 0.18s ease;
+    color 0.18s ease;
 }
 
 .contact-button:hover {
   border-color: var(--link);
 
-  background-color: var(--link-soft);
+  background: var(--link-soft);
 
   color: var(--link) !important;
 
@@ -230,35 +240,79 @@ a:hover,
 
 .contact-button:focus-visible {
   outline: 2px solid var(--link);
-
   outline-offset: 3px;
 }
 
 .contact-button:active {
   border-color: var(--link);
 
-  background-color: rgba(191, 87, 0, 0.12);
+  background: rgba(191, 87, 0, 0.12);
 
   color: var(--link) !important;
 }
 
-/* =========================
-   NAVIGATION
-========================= */
+/* =========================================================
+   GENERAL LINKS
+========================================================= */
+
+a,
+a:visited,
+a:active {
+  color: var(--link);
+
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--link);
+
+  text-decoration: underline;
+}
+
+/* =========================================================
+   RIGHT CONTENT PANEL
+========================================================= */
+
+.content-panel {
+  position: relative;
+
+  min-width: 0;
+  height: 100vh;
+
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  padding: 0 52px 80px;
+
+  background: var(--bg);
+
+  scroll-behavior: smooth;
+}
+
+/* =========================================================
+   STICKY NAVIGATION
+========================================================= */
 
 .nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+
   display: flex;
   align-items: center;
   flex-wrap: wrap;
 
-  gap: 30px;
+  gap: 32px;
 
-  margin: 26px 0 30px;
+  margin: 0 0 52px;
 
-  padding: 13px 0;
+  padding: 26px 0 15px;
 
-  border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
+
+  background: rgba(255, 255, 255, 0.96);
+
+  backdrop-filter: blur(8px);
 
   font-family: "Lato", Arial, sans-serif;
 }
@@ -270,20 +324,18 @@ a:hover,
 
   display: inline-block;
 
-  margin: 0;
-
-  padding: 5px 0 8px;
+  padding: 5px 0 9px;
 
   color: var(--text) !important;
 
   font-family: "Lato", Arial, sans-serif;
 
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 700;
 
   line-height: 1;
 
-  letter-spacing: 0.7px;
+  letter-spacing: 0.9px;
 
   text-transform: uppercase;
 
@@ -291,8 +343,6 @@ a:hover,
 
   text-decoration: none !important;
 }
-
-/* Orange underline */
 
 .nav a::after {
   content: "";
@@ -305,7 +355,7 @@ a:hover,
   width: 100%;
   height: 2px;
 
-  background-color: var(--link);
+  background: var(--link);
 
   transform: scaleX(0);
   transform-origin: left center;
@@ -319,129 +369,62 @@ a:hover,
   text-decoration: none !important;
 }
 
-.nav a:hover::after {
+.nav a:hover::after,
+.nav a:focus-visible::after {
   transform: scaleX(1);
 }
 
 .nav a:focus-visible {
   outline: none;
-
-  color: var(--text) !important;
 }
 
-.nav a:focus-visible::after {
-  transform: scaleX(1);
-}
-
-/* =========================
-   ACTIVE NAVIGATION TAB
-========================= */
-
-body:has(#about:target)
-.nav a[href="#about"]::after {
-  transform: scaleX(1);
-}
-
-body:has(#research:target)
-.nav a[href="#research"]::after {
-  transform: scaleX(1);
-}
-
-body:has(#teaching:target)
-.nav a[href="#teaching"]::after {
-  transform: scaleX(1);
-}
-
-/* Bio is default */
-
-body:not(:has(section:target))
-.nav a[href="#about"]::after {
-  transform: scaleX(1);
-}
-
-/* =========================
-   CONTENT PANEL ARCHITECTURE
-========================= */
+/* =========================================================
+   ALL SECTIONS VISIBLE AGAIN
+========================================================= */
 
 section {
-  display: none;
-
-  margin: 0;
-
-  padding: 0 0 32px;
-
-  font-family: "Lato", Arial, sans-serif;
-}
-
-/* Default panel */
-
-#about {
-  display: block;
-}
-
-/* Hide Bio when another panel is selected */
-
-body:has(section:target) #about:not(:target) {
-  display: none;
-}
-
-/* Show selected panel */
-
-section:target {
-  display: block;
-}
-
-/* =========================
-   PANEL ANIMATION
-========================= */
-
-section:target,
-#about {
-  animation: panelFade 0.18s ease;
-}
-
-@keyframes panelFade {
-  from {
-    opacity: 0;
-    transform: translateY(4px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* =========================
-   SECTION HEADINGS
-========================= */
-
-h2,
-h3 {
-  font-family: "Lato", Arial, sans-serif;
-}
-
-section > h2,
-h2 {
   display: block;
 
   width: 100%;
 
-  font-size: 24px;
-  font-weight: 700;
+  margin: 0 0 90px;
 
-  line-height: 1.25;
+  padding: 0;
 
-  letter-spacing: 0;
+  font-family: "Lato", Arial, sans-serif;
 
-  margin: 0 0 18px;
+  scroll-margin-top: 100px;
+}
+
+/* =========================================================
+   SECTION HEADINGS
+========================================================= */
+
+section > h2,
+h2 {
+  width: 100%;
+
+  margin: 0 0 28px;
 
   padding: 0;
 
   border: none;
+
+  font-family: "Lato", Arial, sans-serif;
+
+  font-size: 25px;
+  font-weight: 700;
+
+  line-height: 1.2;
+
+  letter-spacing: -0.2px;
+
+  color: var(--text);
 }
 
 h3 {
+  font-family: "Lato", Arial, sans-serif;
+
   font-size: 18px;
   font-weight: 400;
 
@@ -450,42 +433,46 @@ h3 {
   margin: 0 0 4px;
 }
 
-/* =========================
+/* =========================================================
    BIO
-========================= */
+========================================================= */
 
 #about {
   font-family: "Lato", Arial, sans-serif;
+}
+
+#about > p {
+  max-width: 760px;
 }
 
 #about p:first-of-type {
   margin-top: 0;
 }
 
-/* =========================
+/* =========================================================
    BIO GRID
-========================= */
+========================================================= */
 
 .bio-grid {
   display: grid;
 
   grid-template-columns: 0.85fr 1.15fr;
 
-  gap: 54px;
+  gap: 58px;
 
-  margin-top: 90px;
+  margin-top: 70px;
 }
 
-/* =========================
+/* =========================================================
    BIO COLUMN HEADINGS
-========================= */
+========================================================= */
 
 .bio-heading {
   margin: 0 0 20px;
 
   font-family: "Lato", Arial, sans-serif;
 
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 700;
 
   line-height: 1.2;
@@ -497,9 +484,9 @@ h3 {
   color: #5f5f5f;
 }
 
-/* =========================
+/* =========================================================
    RESEARCH INTERESTS
-========================= */
+========================================================= */
 
 .bio-list {
   margin: 0;
@@ -520,9 +507,9 @@ h3 {
   color: var(--text);
 }
 
-/* =========================
+/* =========================================================
    EDUCATION
-========================= */
+========================================================= */
 
 .education-list {
   margin: 0;
@@ -559,28 +546,21 @@ h3 {
 }
 
 /* =========================================================
-   RESEARCH PANEL
+   RESEARCH
 ========================================================= */
 
 #research {
   font-family: "Lato", Arial, sans-serif;
 }
 
-/* =========================
+/* =========================================================
    RESEARCH SUBSECTION TITLES
-========================= */
-
-/*
-  More space ABOVE each subsection.
-
-  Only ONE horizontal rule is used:
-  the bottom border of the subsection title.
-*/
+========================================================= */
 
 .research-group-title {
-  margin: 48px 0 0;
+  margin: 58px 0 0;
 
-  padding-bottom: 10px;
+  padding-bottom: 11px;
 
   border-bottom: 1px solid var(--research-line);
 
@@ -598,19 +578,13 @@ h3 {
   text-transform: uppercase;
 }
 
-/*
-  First subsection gets slightly less
-  top space because Research is already
-  immediately above it.
-*/
-
 #research > h2 + .research-group-title {
-  margin-top: 32px;
+  margin-top: 38px;
 }
 
-/* =========================
+/* =========================================================
    RESEARCH LIST
-========================= */
+========================================================= */
 
 .research-list {
   width: 100%;
@@ -619,30 +593,21 @@ h3 {
 
   padding: 0;
 
-  /*
-    IMPORTANT:
-    no border-top here.
-    This removes the double line.
-  */
-
   border-top: none;
 }
 
-/* =========================
-   INDIVIDUAL RESEARCH ITEM
-========================= */
+/* =========================================================
+   RESEARCH ITEM
+========================================================= */
 
 .research-item {
   margin: 0;
 
   border: none;
-
   border-bottom: 1px solid var(--research-line);
 
   background: transparent;
 }
-
-/* Remove native details marker */
 
 .research-item > summary {
   list-style: none;
@@ -652,9 +617,9 @@ h3 {
   display: none;
 }
 
-/* =========================
-   RESEARCH SUMMARY / ROW
-========================= */
+/* =========================================================
+   RESEARCH SUMMARY
+========================================================= */
 
 .research-summary {
   position: relative;
@@ -663,20 +628,16 @@ h3 {
 
   width: 100%;
 
-  padding: 22px 38px 22px 0;
+  padding: 23px 42px 23px 0;
 
   cursor: pointer;
 
   user-select: none;
 }
 
-.research-summary:hover {
-  background: transparent;
-}
-
-/* =========================
+/* =========================================================
    PAPER TITLE
-========================= */
+========================================================= */
 
 .research-title {
   margin: 0 0 9px;
@@ -702,19 +663,9 @@ h3 {
   text-decoration: none;
 }
 
-/* =========================
-   PAPER META INFORMATION
-========================= */
-
-/*
-  Desired order:
-
-  JOURNAL, volume/pages    with Coauthor One and Coauthor Two
-
-  Example:
-
-  Journal of Politics, 206, 104698    with Jane Doe and John Doe
-*/
+/* =========================================================
+   RESEARCH META
+========================================================= */
 
 .research-meta {
   display: flex;
@@ -736,31 +687,17 @@ h3 {
   line-height: 1.5;
 }
 
-/*
-  Journal name ONLY is bold.
-*/
-
 .research-journal {
   color: #555555;
 
   font-weight: 700;
 }
 
-/*
-  Volume / issue / pages / article number
-  immediately follow the journal.
-*/
-
 .research-citation {
   color: #606060;
 
   font-weight: 400;
 }
-
-/*
-  Authors come after citation information
-  with a noticeable but restrained gap.
-*/
 
 .research-authors {
   margin-left: 16px;
@@ -770,19 +707,14 @@ h3 {
   font-weight: 400;
 }
 
-/*
-  Legacy classes retained harmlessly in case
-  an older research item still contains them.
-*/
-
 .research-year,
 .research-separator {
   display: none;
 }
 
-/* =========================
-   CHEVRON ICON
-========================= */
+/* =========================================================
+   CHEVRON
+========================================================= */
 
 .research-summary::after {
   content: "";
@@ -790,7 +722,7 @@ h3 {
   position: absolute;
 
   top: 50%;
-  right: 5px;
+  right: 6px;
 
   width: 10px;
   height: 10px;
@@ -802,29 +734,21 @@ h3 {
 
   transform-origin: center;
 
-  transition:
-    transform 0.18s ease,
-    border-color 0.18s ease;
+  transition: transform 0.18s ease;
 }
-
-/* Open state */
 
 .research-item[open] > .research-summary::after {
   transform: translateY(-25%) rotate(225deg);
 }
 
-.research-summary:hover::after {
-  border-color: var(--link);
-}
-
-/* =========================
+/* =========================================================
    ABSTRACT
-========================= */
+========================================================= */
 
 .research-abstract {
-  margin: 0 0 22px;
+  margin: 0 0 24px;
 
-  padding: 3px 20px 2px 20px;
+  padding: 5px 22px 4px;
 
   border-left: 3px solid #eeeeee;
 
@@ -841,7 +765,7 @@ h3 {
 .research-abstract-label {
   display: block;
 
-  margin: 0 0 10px;
+  margin: 0 0 11px;
 
   color: #5d5d5d;
 
@@ -859,9 +783,9 @@ h3 {
   margin: 0;
 }
 
-/* =========================
+/* =========================================================
    OPTIONAL RESEARCH LINKS
-========================= */
+========================================================= */
 
 .research-links {
   display: flex;
@@ -885,9 +809,9 @@ h3 {
   text-decoration: underline;
 }
 
-/* =========================
+/* =========================================================
    TEACHING
-========================= */
+========================================================= */
 
 .teaching-subhead {
   margin-top: 18px;
@@ -906,7 +830,7 @@ h3 {
 }
 
 .teaching-list li {
-  margin-bottom: 4px;
+  margin-bottom: 8px;
 }
 
 .teaching-list span {
@@ -915,59 +839,136 @@ h3 {
   margin-left: 4px;
 }
 
-/* =========================
-   MOBILE
-========================= */
+/* =========================================================
+   TABLET
+========================================================= */
 
-@media (max-width: 640px) {
+@media (max-width: 900px) {
 
-  .page {
-    margin-top: 24px;
+  :root {
+    --sidebar-width: 280px;
   }
 
   .hero {
-    grid-template-columns: 1fr;
-
-    gap: 18px;
+    padding: 30px 22px;
   }
 
   .photo-wrap {
-    width: 220px;
-    height: 275px;
-
-    margin-top: -5px;
-  }
-
-  .profile-photo {
-    width: 220px;
-    height: 275px;
+    max-width: 235px;
   }
 
   h1 {
-    font-size: 25px;
-
-    margin-bottom: 15px;
+    font-size: 27px;
   }
 
   .role,
   .institution {
     font-size: 15px;
-
-    line-height: 1.45;
-
-    margin-bottom: 5px;
   }
 
-  /* =========================
-     MOBILE NAV
-  ========================= */
+  .content-panel {
+    padding-left: 34px;
+    padding-right: 34px;
+  }
 
   .nav {
+    gap: 22px;
+  }
+
+  .bio-grid {
+    grid-template-columns: 1fr;
+
+    gap: 34px;
+  }
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 680px) {
+
+  html,
+  body {
+    height: auto;
+  }
+
+  body {
+    overflow: visible;
+  }
+
+  .page {
+    display: block;
+
+    width: 100%;
+    height: auto;
+  }
+
+  /*
+    On phones the sidebar returns to a
+    normal top profile block.
+  */
+
+  .hero {
+    width: 100%;
+    height: auto;
+
+    padding: 24px;
+
+    overflow: visible;
+
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .photo-wrap {
+    width: 220px;
+    max-width: 100%;
+
+    margin-bottom: 24px;
+  }
+
+  h1 {
+    font-size: 27px;
+  }
+
+  .role,
+  .institution {
+    font-size: 15px;
+  }
+
+  .contact-buttons {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .contact-button {
+    font-size: 13px;
+
+    padding: 8px 13px;
+  }
+
+  /*
+    Right content becomes ordinary page flow
+    on smaller screens.
+  */
+
+  .content-panel {
+    height: auto;
+
+    overflow: visible;
+
+    padding: 0 24px 60px;
+  }
+
+  .nav {
+    top: 0;
+
     gap: 18px;
 
-    padding: 11px 0;
+    margin-bottom: 38px;
 
-    margin-bottom: 26px;
+    padding: 17px 0 12px;
   }
 
   .nav a {
@@ -976,34 +977,27 @@ h3 {
     letter-spacing: 0.6px;
   }
 
-  /* =========================
-     MOBILE CONTACT BUTTONS
-  ========================= */
+  section {
+    margin-bottom: 70px;
 
-  .contact-buttons {
-    gap: 10px;
+    scroll-margin-top: 75px;
   }
 
-  .contact-button {
-    padding: 8px 14px;
-
-    font-size: 14px;
+  section > h2,
+  h2 {
+    font-size: 23px;
   }
-
-  /* =========================
-     MOBILE BIO
-  ========================= */
 
   .bio-grid {
     grid-template-columns: 1fr;
 
     gap: 34px;
 
-    margin-top: 55px;
+    margin-top: 50px;
   }
 
   .bio-heading {
-    font-size: 14px;
+    font-size: 13px;
   }
 
   .bio-list li,
@@ -1015,12 +1009,8 @@ h3 {
     font-size: 15px;
   }
 
-  /* =========================
-     MOBILE RESEARCH
-  ========================= */
-
   .research-group-title {
-    margin-top: 40px;
+    margin-top: 42px;
 
     font-size: 13px;
 
@@ -1028,7 +1018,7 @@ h3 {
   }
 
   #research > h2 + .research-group-title {
-    margin-top: 28px;
+    margin-top: 30px;
   }
 
   .research-summary {
@@ -1037,34 +1027,24 @@ h3 {
 
   .research-title {
     font-size: 16px;
-
-    line-height: 1.4;
   }
 
   .research-meta {
-    font-size: 14px;
+    display: block;
 
-    line-height: 1.5;
+    font-size: 14px;
   }
 
   .research-authors {
-    margin-left: 12px;
-  }
+    display: block;
 
-  .research-summary::after {
-    right: 3px;
-
-    width: 9px;
-    height: 9px;
+    margin-left: 0;
+    margin-top: 3px;
   }
 
   .research-abstract {
-    margin-bottom: 20px;
-
-    padding: 2px 10px 2px 15px;
+    padding: 4px 12px 3px 15px;
 
     font-size: 15px;
-
-    line-height: 1.6;
   }
 }
