@@ -1270,3 +1270,60 @@ h3 {
     font-size: 15px;
   }
 }
+
+/* =========================================================
+   RESEARCH RESOURCE LINKS
+   e.g. Pre-registration, Replication Code, Ungated Paper
+========================================================= */
+
+.research-resource-links {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 8px;
+
+  margin-top: 18px;
+}
+
+/* Same visual style as teaching semester buttons */
+
+.research-resource-link,
+.research-resource-link:visited {
+  display: inline-block;
+
+  padding: 8px 12px;
+
+  border-radius: 5px;
+
+  background: var(--teaching-box);
+
+  color: var(--teaching-box-text) !important;
+
+  font-family: "Lato", Arial, sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+
+  line-height: 1.15;
+
+  text-align: center;
+  text-decoration: none !important;
+
+  white-space: nowrap;
+
+  transition:
+    background-color 0.16s ease,
+    color 0.16s ease;
+}
+
+.research-resource-link:hover {
+  background: var(--teaching-hover);
+
+  color: #ffffff !important;
+
+  text-decoration: none !important;
+}
+
+.research-resource-link:focus-visible {
+  outline: 2px solid var(--teaching-hover);
+  outline-offset: 2px;
+}
