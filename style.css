@@ -20,6 +20,11 @@
   --teaching-box-text: #444444;
   --teaching-hover: #07182d;
   --teaching-line: #eeeeee;
+
+  /* Resources */
+  --resource-card-bg: #fafafa;
+  --resource-card-border: #e7e7e7;
+  --resource-meta: #666666;
 }
 
 /* =========================================================
@@ -55,6 +60,7 @@ body {
 
 /* =========================================================
    MAIN TWO-COLUMN ARCHITECTURE
+   Used by BOTH index.html and resources.html
 ========================================================= */
 
 .page {
@@ -276,10 +282,11 @@ a:hover {
 }
 
 /* =========================================================
-   RIGHT CONTENT PANEL
+   RIGHT CONTENT PANEL / SLATE
 ========================================================= */
 
-.content-panel {
+.content-panel,
+.slate {
   position: relative;
 
   min-width: 0;
@@ -293,6 +300,17 @@ a:hover {
   background: var(--bg);
 
   scroll-behavior: smooth;
+}
+
+/*
+  Optional semantic class:
+  <main class="content-panel slate home-slate">...</main>
+  <main class="content-panel slate resources-slate">...</main>
+*/
+
+.home-slate,
+.resources-slate {
+  min-width: 0;
 }
 
 /* =========================================================
@@ -376,7 +394,9 @@ a:hover {
 }
 
 .nav a:hover::after,
-.nav a:focus-visible::after {
+.nav a:focus-visible::after,
+.nav a[aria-current="page"]::after,
+.nav a[aria-current="location"]::after {
   transform: scaleX(1);
 }
 
@@ -855,8 +875,6 @@ h3 {
   font-family: "Lato", Arial, sans-serif;
 }
 
-/* Main course container */
-
 .teaching-courses {
   width: 100%;
 
@@ -865,8 +883,6 @@ h3 {
 
   border-top: 1px solid var(--teaching-line);
 }
-
-/* One full course row */
 
 .teaching-course {
   display: grid;
@@ -894,10 +910,6 @@ h3 {
 
   border-right: 3px solid #eeeeee;
 }
-
-/*
-  Semester button
-*/
 
 .semester-link,
 .semester-link:visited {
@@ -930,10 +942,6 @@ h3 {
     background-color 0.16s ease,
     color 0.16s ease;
 }
-
-/*
-  Very dark navy on hover
-*/
 
 .semester-link:hover {
   background: var(--teaching-hover);
@@ -984,11 +992,6 @@ h3 {
   line-height: 1.45;
 }
 
-/*
-  Optional link inside description,
-  e.g. co-instructor
-*/
-
 .teaching-description a,
 .teaching-description a:visited {
   color: inherit;
@@ -1003,6 +1006,227 @@ h3 {
   color: var(--link);
 
   text-decoration-color: var(--link);
+}
+
+/* =========================================================
+   RESEARCH RESOURCE LINKS
+   e.g. Pre-registration, Replication Code, Ungated Paper
+========================================================= */
+
+.research-resource-links {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 8px;
+
+  margin-top: 18px;
+}
+
+.research-resource-link,
+.research-resource-link:visited {
+  display: inline-block;
+
+  padding: 8px 12px;
+
+  border-radius: 5px;
+
+  background: var(--teaching-box);
+
+  color: var(--teaching-box-text) !important;
+
+  font-family: "Lato", Arial, sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+
+  line-height: 1.15;
+
+  text-align: center;
+  text-decoration: none !important;
+
+  white-space: nowrap;
+
+  transition:
+    background-color 0.16s ease,
+    color 0.16s ease;
+}
+
+.research-resource-link:hover {
+  background: var(--teaching-hover);
+
+  color: #ffffff !important;
+
+  text-decoration: none !important;
+}
+
+.research-resource-link:focus-visible {
+  outline: 2px solid var(--teaching-hover);
+  outline-offset: 2px;
+}
+
+/* =========================================================
+   RESOURCES SLATE
+   Used on resources.html
+========================================================= */
+
+#resources {
+  max-width: 860px;
+}
+
+.resources-intro {
+  max-width: 760px;
+
+  margin: -8px 0 42px;
+
+  color: #4f4f4f;
+
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+.resource-group {
+  margin: 0 0 54px;
+}
+
+.resource-group-title {
+  margin: 0 0 16px;
+
+  padding-bottom: 11px;
+
+  border-bottom: 1px solid var(--research-line);
+
+  color: #5f5f5f;
+
+  font-size: 14px;
+  font-weight: 700;
+
+  line-height: 1.2;
+
+  letter-spacing: 1.5px;
+
+  text-transform: uppercase;
+}
+
+.resource-list {
+  display: grid;
+  grid-template-columns: 1fr;
+
+  gap: 14px;
+
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+}
+
+.resource-card {
+  padding: 22px 24px;
+
+  border: 1px solid var(--resource-card-border);
+  border-radius: 8px;
+
+  background: var(--resource-card-bg);
+
+  transition:
+    border-color 0.16s ease,
+    background-color 0.16s ease,
+    transform 0.16s ease;
+}
+
+.resource-card:hover {
+  border-color: #d2d2d2;
+
+  background: #ffffff;
+
+  transform: translateY(-1px);
+}
+
+.resource-title {
+  margin: 0 0 7px;
+
+  font-size: 17px;
+  font-weight: 700;
+
+  line-height: 1.35;
+}
+
+.resource-title a,
+.resource-title a:visited {
+  color: var(--link);
+
+  text-decoration: none;
+}
+
+.resource-title a:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.resource-description {
+  margin: 0;
+
+  color: #444444;
+
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+.resource-meta {
+  margin: 10px 0 0;
+
+  color: var(--resource-meta);
+
+  font-size: 13px;
+  font-weight: 700;
+
+  line-height: 1.35;
+
+  letter-spacing: 0.2px;
+}
+
+.resource-actions {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 8px;
+
+  margin-top: 15px;
+}
+
+.resource-button,
+.resource-button:visited {
+  display: inline-block;
+
+  padding: 8px 12px;
+
+  border-radius: 5px;
+
+  background: var(--teaching-box);
+
+  color: var(--teaching-box-text) !important;
+
+  font-size: 13px;
+  font-weight: 700;
+
+  line-height: 1.15;
+
+  text-decoration: none !important;
+
+  transition:
+    background-color 0.16s ease,
+    color 0.16s ease;
+}
+
+.resource-button:hover {
+  background: var(--teaching-hover);
+
+  color: #ffffff !important;
+
+  text-decoration: none !important;
+}
+
+.resource-button:focus-visible {
+  outline: 2px solid var(--teaching-hover);
+  outline-offset: 2px;
 }
 
 /* =========================================================
@@ -1032,7 +1256,8 @@ h3 {
     font-size: 15px;
   }
 
-  .content-panel {
+  .content-panel,
+  .slate {
     padding-left: 34px;
     padding-right: 34px;
   }
@@ -1123,7 +1348,8 @@ h3 {
     padding: 8px 13px;
   }
 
-  .content-panel {
+  .content-panel,
+  .slate {
     height: auto;
 
     overflow: visible;
@@ -1223,10 +1449,6 @@ h3 {
     font-size: 15px;
   }
 
-  /* =======================================================
-     MOBILE TEACHING
-  ======================================================= */
-
   .teaching-course {
     display: block;
 
@@ -1269,61 +1491,34 @@ h3 {
   .teaching-description {
     font-size: 15px;
   }
-}
 
-/* =========================================================
-   RESEARCH RESOURCE LINKS
-   e.g. Pre-registration, Replication Code, Ungated Paper
-========================================================= */
+  /* Resources */
 
-.research-resource-links {
-  display: flex;
-  flex-wrap: wrap;
+  .resources-intro {
+    margin-bottom: 32px;
 
-  gap: 8px;
+    font-size: 16px;
+  }
 
-  margin-top: 18px;
-}
+  .resource-group {
+    margin-bottom: 44px;
+  }
 
-/* Same visual style as teaching semester buttons */
+  .resource-group-title {
+    font-size: 13px;
 
-.research-resource-link,
-.research-resource-link:visited {
-  display: inline-block;
+    letter-spacing: 1.3px;
+  }
 
-  padding: 8px 12px;
+  .resource-card {
+    padding: 19px 18px;
+  }
 
-  border-radius: 5px;
+  .resource-title {
+    font-size: 16px;
+  }
 
-  background: var(--teaching-box);
-
-  color: var(--teaching-box-text) !important;
-
-  font-family: "Lato", Arial, sans-serif;
-  font-size: 13px;
-  font-weight: 700;
-
-  line-height: 1.15;
-
-  text-align: center;
-  text-decoration: none !important;
-
-  white-space: nowrap;
-
-  transition:
-    background-color 0.16s ease,
-    color 0.16s ease;
-}
-
-.research-resource-link:hover {
-  background: var(--teaching-hover);
-
-  color: #ffffff !important;
-
-  text-decoration: none !important;
-}
-
-.research-resource-link:focus-visible {
-  outline: 2px solid var(--teaching-hover);
-  outline-offset: 2px;
+  .resource-description {
+    font-size: 15px;
+  }
 }
