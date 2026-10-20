@@ -1,3 +1,1411 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;700&family=Lato:wght@400;700&display=swap');
+
+:root {
+  --text: #111111;
+  --muted: #777777;
+  --credential: #777777;
+
+  --link: #BF5700;
+  --link-soft: rgba(191, 87, 0, 0.08);
+
+  --border: #dddddd;
+  --bg: #ffffff;
+
+  --research-line: #dedede;
+
+  --sidebar-width: 330px;
+
+  /* Teaching */
+  --teaching-box: #f3f3f3;
+  --teaching-box-text: #444444;
+  --teaching-hover: #07182d;
+  --teaching-line: #eeeeee;
+
+  /* Resources */
+  --resource-card-bg: #fafafa;
+  --resource-card-border: #e7e7e7;
+  --resource-meta: #666666;
+}
+
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  overflow: hidden;
+
+  background: var(--bg);
+  color: var(--text);
+
+  font-family: "Inter Tight", Varta, sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.45;
+}
+
+/* =========================================================
+   MAIN TWO-COLUMN ARCHITECTURE
+   Used by BOTH index.html and resources.html
+========================================================= */
+
+.page {
+  display: grid;
+  grid-template-columns: var(--sidebar-width) minmax(0, 1fr);
+
+  width: 100%;
+  max-width: 1280px;
+  height: 100vh;
+
+  margin: 0 auto;
+  padding: 0;
+}
+
+/* =========================================================
+   LEFT PROFILE PANEL
+========================================================= */
+
+.hero {
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+  height: 100vh;
+
+  padding: 38px 30px 40px;
+
+  overflow-y: auto;
+
+  border-right: 1px solid #eeeeee;
+
+  background: #ffffff;
+}
+
+/* =========================================================
+   PROFILE PHOTO
+========================================================= */
+
+.photo-wrap {
+  width: 100%;
+  max-width: 270px;
+
+  aspect-ratio: 4 / 5;
+
+  margin: 0 0 28px;
+
+  padding: 0;
+
+  overflow: hidden;
+
+  border-radius: 8px;
+
+  background: #f4f4f4;
+}
+
+.profile-photo {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center top;
+
+  border-radius: 8px;
+}
+
+/* =========================================================
+   INTRO
+========================================================= */
+
+.intro {
+  width: 100%;
+}
+
+/* =========================================================
+   NAME
+========================================================= */
+
+h1 {
+  margin: 0 0 17px;
+
+  font-family:
+    "Helvetica Neue",
+    Helvetica,
+    Arial,
+    sans-serif;
+
+  font-size: 31px;
+  font-weight: 700;
+
+  line-height: 1.08;
+
+  letter-spacing: -0.7px;
+
+  color: var(--text);
+}
+
+/* =========================================================
+   CREDENTIALS
+========================================================= */
+
+.role,
+.institution {
+  margin: 0 0 4px;
+
+  font-family:
+    "Helvetica Neue",
+    Helvetica,
+    Arial,
+    sans-serif;
+
+  font-size: 17px;
+  font-weight: 400;
+
+  line-height: 1.35;
+
+  color: var(--credential);
+}
+
+.institution:last-of-type {
+  margin-bottom: 0;
+}
+
+/* =========================================================
+   LEFT PANEL CONTACT / BUTTON AREA
+========================================================= */
+
+.contact {
+  margin: 26px 0 0;
+
+  font-family: "Lato", Arial, sans-serif;
+}
+
+/* =========================================================
+   CONTACT BUTTONS
+========================================================= */
+
+.contact-buttons {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+
+  gap: 10px;
+
+  width: 100%;
+  margin-top: 0;
+}
+
+.contact-button,
+.contact-button:visited {
+  display: inline-block;
+
+  padding: 8px 15px;
+
+  border: 1.5px solid var(--border);
+  border-radius: 999px;
+
+  background: #ffffff;
+
+  color: var(--text) !important;
+
+  font-family: "Lato", Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+
+  line-height: 1.2;
+
+  text-decoration: none !important;
+
+  cursor: pointer;
+
+  transition:
+    border-color 0.18s ease,
+    background-color 0.18s ease,
+    color 0.18s ease;
+}
+
+.contact-button:hover {
+  border-color: var(--link);
+
+  background: var(--link-soft);
+
+  color: var(--link) !important;
+
+  text-decoration: none !important;
+}
+
+.contact-button:focus-visible {
+  outline: 2px solid var(--link);
+  outline-offset: 3px;
+}
+
+.contact-button:active {
+  border-color: var(--link);
+
+  background: rgba(191, 87, 0, 0.12);
+
+  color: var(--link) !important;
+}
+
+/* =========================================================
+   GENERAL LINKS
+========================================================= */
+
+a,
+a:visited,
+a:active {
+  color: var(--link);
+
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--link);
+
+  text-decoration: underline;
+}
+
+/* =========================================================
+   RIGHT CONTENT PANEL / SLATE
+========================================================= */
+
+.content-panel,
+.slate {
+  position: relative;
+
+  min-width: 0;
+  height: 100vh;
+
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  padding: 0 52px 80px;
+
+  background: var(--bg);
+
+  scroll-behavior: smooth;
+}
+
+/*
+  Optional semantic class:
+  <main class="content-panel slate home-slate">...</main>
+  <main class="content-panel slate resources-slate">...</main>
+*/
+
+.home-slate,
+.resources-slate {
+  min-width: 0;
+}
+
+/* =========================================================
+   STICKY NAVIGATION
+========================================================= */
+
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+
+  gap: 32px;
+
+  margin: 0 0 26px;
+
+  padding: 26px 0 10px;
+
+  border-bottom: 1px solid var(--border);
+
+  background: rgba(255, 255, 255, 0.96);
+
+  backdrop-filter: blur(8px);
+
+  font-family: "Lato", Arial, sans-serif;
+}
+
+.nav a,
+.nav a:visited,
+.nav a:active {
+  position: relative;
+
+  display: inline-block;
+
+  padding: 5px 0 9px;
+
+  color: var(--text) !important;
+
+  font-family: "Lato", Arial, sans-serif;
+
+  font-size: 13px;
+  font-weight: 700;
+
+  line-height: 1;
+
+  letter-spacing: 0.9px;
+
+  text-transform: uppercase;
+
+  white-space: nowrap;
+
+  text-decoration: none !important;
+}
+
+.nav a::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  bottom: 0;
+
+  width: 100%;
+  height: 2px;
+
+  background: var(--link);
+
+  transform: scaleX(0);
+  transform-origin: left center;
+
+  transition: transform 0.18s ease;
+}
+
+.nav a:hover {
+  color: var(--text) !important;
+
+  text-decoration: none !important;
+}
+
+.nav a:hover::after,
+.nav a:focus-visible::after,
+.nav a[aria-current="page"]::after,
+.nav a[aria-current="location"]::after {
+  transform: scaleX(1);
+}
+
+.nav a:focus-visible {
+  outline: none;
+}
+
+/* =========================================================
+   ALL SECTIONS
+========================================================= */
+
+section {
+  display: block;
+
+  width: 100%;
+
+  margin: 0 0 90px;
+
+  padding: 0;
+
+  font-family: "Lato", Arial, sans-serif;
+
+  scroll-margin-top: 100px;
+}
+
+/* =========================================================
+   SECTION HEADINGS
+========================================================= */
+
+section > h2,
+h2 {
+  width: 100%;
+
+  margin: 0 0 28px;
+
+  padding: 0;
+
+  border: none;
+
+  font-family: "Lato", Arial, sans-serif;
+
+  font-size: 25px;
+  font-weight: 700;
+
+  line-height: 1.2;
+
+  letter-spacing: -0.2px;
+
+  color: var(--text);
+}
+
+h3 {
+  font-family: "Lato", Arial, sans-serif;
+
+  font-size: 18px;
+  font-weight: 400;
+
+  line-height: 1.35;
+
+  margin: 0 0 4px;
+}
+
+/* =========================================================
+   BIO
+========================================================= */
+
+#about {
+  font-family: "Lato", Arial, sans-serif;
+}
+
+#about > p {
+  max-width: 760px;
+}
+
+#about p:first-of-type {
+  margin-top: 0;
+}
+
+/* =========================================================
+   BIO GRID
+========================================================= */
+
+.bio-grid {
+  display: grid;
+
+  grid-template-columns: 0.85fr 1.15fr;
+
+  gap: 58px;
+
+  margin-top: 70px;
+}
+
+/* =========================================================
+   BIO COLUMN HEADINGS
+========================================================= */
+
+.bio-heading {
+  margin: 0 0 20px;
+
+  font-family: "Lato", Arial, sans-serif;
+
+  font-size: 14px;
+  font-weight: 700;
+
+  line-height: 1.2;
+
+  letter-spacing: 1.5px;
+
+  text-transform: uppercase;
+
+  color: #5f5f5f;
+}
+
+/* =========================================================
+   RESEARCH INTERESTS
+========================================================= */
+
+.bio-list {
+  margin: 0;
+
+  padding-left: 22px;
+}
+
+.bio-list li {
+  margin-bottom: 13px;
+
+  font-family: "Lato", Arial, sans-serif;
+
+  font-size: 17px;
+  font-weight: 400;
+
+  line-height: 1.4;
+
+  color: var(--text);
+}
+
+/* =========================================================
+   EDUCATION
+========================================================= */
+
+.education-list {
+  margin: 0;
+
+  padding-left: 22px;
+}
+
+.education-list li {
+  margin-bottom: 17px;
+
+  font-family: "Lato", Arial, sans-serif;
+
+  font-size: 17px;
+
+  line-height: 1.35;
+
+  color: var(--text);
+}
+
+.degree-line {
+  margin-bottom: 4px;
+}
+
+.degree-line strong {
+  font-weight: 700;
+}
+
+.school-line {
+  color: #666666;
+
+  font-size: 16px;
+
+  line-height: 1.35;
+}
+
+/* =========================================================
+   RESEARCH
+========================================================= */
+
+#research {
+  font-family: "Lato", Arial, sans-serif;
+}
+
+/* =========================================================
+   RESEARCH SUBSECTION TITLES
+========================================================= */
+
+.research-group-title {
+  margin: 58px 0 0;
+
+  padding-bottom: 11px;
+
+  border-bottom: 1px solid var(--research-line);
+
+  color: #5f5f5f;
+
+  font-family: "Lato", Arial, sans-serif;
+
+  font-size: 14px;
+  font-weight: 700;
+
+  line-height: 1.2;
+
+  letter-spacing: 1.5px;
+
+  text-transform: uppercase;
+}
+
+#research > h2 + .research-group-title {
+  margin-top: 38px;
+}
+
+/* =========================================================
+   RESEARCH LIST
+========================================================= */
+
+.research-list {
+  width: 100%;
+
+  margin: 0;
+
+  padding: 0;
+
+  border-top: none;
+}
+
+/* =========================================================
+   RESEARCH ITEM
+========================================================= */
+
+.research-item {
+  margin: 0;
+
+  border: none;
+  border-bottom: 1px solid var(--research-line);
+
+  background: transparent;
+}
+
+.research-item > summary {
+  list-style: none;
+}
+
+.research-item > summary::-webkit-details-marker {
+  display: none;
+}
+
+/* =========================================================
+   RESEARCH SUMMARY
+========================================================= */
+
+.research-summary {
+  position: relative;
+
+  display: block;
+
+  width: 100%;
+
+  padding: 23px 42px 23px 0;
+
+  cursor: pointer;
+
+  user-select: none;
+}
+
+/* =========================================================
+   PAPER TITLE
+========================================================= */
+
+.research-title {
+  margin: 0 0 9px;
+
+  font-family: "Lato", Arial, sans-serif;
+
+  font-size: 17px;
+  font-weight: 700;
+
+  line-height: 1.35;
+}
+
+.research-title a,
+.research-title a:visited {
+  color: var(--link);
+
+  text-decoration: none;
+}
+
+.research-title a:hover {
+  color: var(--link);
+
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* =========================================================
+   RESEARCH META
+========================================================= */
+
+.research-meta {
+  display: flex;
+  flex-wrap: wrap;
+
+  align-items: baseline;
+
+  gap: 0;
+
+  margin: 0;
+
+  color: #606060;
+
+  font-family: "Lato", Arial, sans-serif;
+
+  font-size: 15px;
+  font-weight: 400;
+
+  line-height: 1.5;
+}
+
+.research-journal {
+  color: #555555;
+
+  font-weight: 700;
+}
+
+.research-citation {
+  color: #606060;
+
+  font-weight: 400;
+}
+
+.research-authors {
+  margin-left: 11px;
+
+  color: #606060;
+
+  font-weight: 400;
+}
+
+.research-year,
+.research-separator {
+  display: none;
+}
+
+/* =========================================================
+   RESEARCH STATUS BADGE
+========================================================= */
+
+.research-status {
+  display: inline-block;
+
+  margin-left: 16px;
+  padding: 5px 10px;
+
+  border-radius: 5px;
+
+  background: var(--link-soft);
+
+  color: var(--link);
+
+  font-family: "Lato", Arial, sans-serif;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  line-height: 1;
+
+  letter-spacing: 1px;
+  text-transform: uppercase;
+
+  white-space: nowrap;
+
+  vertical-align: middle;
+}
+
+/* =========================================================
+   CHEVRON
+========================================================= */
+
+.research-summary::after {
+  content: "";
+
+  position: absolute;
+
+  top: 50%;
+  right: 6px;
+
+  width: 10px;
+  height: 10px;
+
+  border-right: 2.5px solid var(--link);
+  border-bottom: 2.5px solid var(--link);
+
+  transform: translateY(-70%) rotate(45deg);
+
+  transform-origin: center;
+
+  transition: transform 0.18s ease;
+}
+
+.research-item[open] > .research-summary::after {
+  transform: translateY(-25%) rotate(225deg);
+}
+
+/* =========================================================
+   ABSTRACT
+========================================================= */
+
+.research-abstract {
+  margin: 0 0 24px;
+
+  padding: 5px 22px 4px;
+
+  border-left: 3px solid #eeeeee;
+
+  color: #333333;
+
+  font-family: "Lato", Arial, sans-serif;
+
+  font-size: 16px;
+  font-weight: 400;
+
+  line-height: 1.65;
+}
+
+.research-abstract-label {
+  display: block;
+
+  margin: 0 0 11px;
+
+  color: #5d5d5d;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  line-height: 1;
+
+  letter-spacing: 1.4px;
+
+  text-transform: uppercase;
+}
+
+.research-abstract p {
+  margin: 0;
+}
+
+/* =========================================================
+   OPTIONAL RESEARCH LINKS
+========================================================= */
+
+.research-links {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 12px;
+
+  margin-top: 14px;
+}
+
+.research-links a {
+  color: var(--link);
+
+  font-size: 14px;
+  font-weight: 700;
+
+  text-decoration: none;
+}
+
+.research-links a:hover {
+  text-decoration: underline;
+}
+
+/* =========================================================
+   TEACHING
+========================================================= */
+
+#teaching {
+  font-family: "Lato", Arial, sans-serif;
+}
+
+.teaching-courses {
+  width: 100%;
+
+  margin: 0;
+  padding: 0;
+
+  border-top: 1px solid var(--teaching-line);
+}
+
+.teaching-course {
+  display: grid;
+
+  grid-template-columns: 165px minmax(0, 1fr);
+
+  gap: 24px;
+
+  padding: 28px 0;
+
+  border-bottom: 1px solid var(--teaching-line);
+}
+
+/* =========================================================
+   SEMESTER COLUMN
+========================================================= */
+
+.teaching-semesters {
+  display: flex;
+  flex-direction: column;
+
+  gap: 9px;
+
+  padding-right: 22px;
+
+  border-right: 3px solid #eeeeee;
+}
+
+.semester-link,
+.semester-link:visited {
+  display: block;
+
+  width: 100%;
+
+  padding: 8px 12px;
+
+  border-radius: 5px;
+
+  background: var(--teaching-box);
+
+  color: var(--teaching-box-text) !important;
+
+  font-family: "Lato", Arial, sans-serif;
+
+  font-size: 14px;
+  font-weight: 700;
+
+  line-height: 1.15;
+
+  text-align: center;
+
+  text-decoration: none !important;
+
+  white-space: nowrap;
+
+  transition:
+    background-color 0.16s ease,
+    color 0.16s ease;
+}
+
+.semester-link:hover {
+  background: var(--teaching-hover);
+
+  color: #ffffff !important;
+
+  text-decoration: none !important;
+}
+
+.semester-link:focus-visible {
+  outline: 2px solid var(--teaching-hover);
+  outline-offset: 2px;
+}
+
+/* =========================================================
+   COURSE INFORMATION
+========================================================= */
+
+.teaching-info {
+  min-width: 0;
+
+  padding: 2px 0 0;
+}
+
+.teaching-title {
+  margin: 0 0 7px;
+
+  color: var(--text);
+
+  font-family: "Lato", Arial, sans-serif;
+
+  font-size: 18px;
+  font-weight: 700;
+
+  line-height: 1.35;
+}
+
+.teaching-description {
+  margin: 0;
+
+  color: #4f4f4f;
+
+  font-family: "Lato", Arial, sans-serif;
+
+  font-size: 16px;
+  font-weight: 400;
+
+  line-height: 1.45;
+}
+
+.teaching-description a,
+.teaching-description a:visited {
+  color: inherit;
+
+  text-decoration: underline;
+
+  text-decoration-color: #aaaaaa;
+  text-underline-offset: 3px;
+}
+
+.teaching-description a:hover {
+  color: var(--link);
+
+  text-decoration-color: var(--link);
+}
+
+/* =========================================================
+   RESEARCH RESOURCE LINKS
+   e.g. Pre-registration, Replication Code, Ungated Paper
+========================================================= */
+
+.research-resource-links {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 8px;
+
+  margin-top: 18px;
+}
+
+.research-resource-link,
+.research-resource-link:visited {
+  display: inline-block;
+
+  padding: 8px 12px;
+
+  border-radius: 5px;
+
+  background: var(--teaching-box);
+
+  color: var(--teaching-box-text) !important;
+
+  font-family: "Lato", Arial, sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+
+  line-height: 1.15;
+
+  text-align: center;
+  text-decoration: none !important;
+
+  white-space: nowrap;
+
+  transition:
+    background-color 0.16s ease,
+    color 0.16s ease;
+}
+
+.research-resource-link:hover {
+  background: var(--teaching-hover);
+
+  color: #ffffff !important;
+
+  text-decoration: none !important;
+}
+
+.research-resource-link:focus-visible {
+  outline: 2px solid var(--teaching-hover);
+  outline-offset: 2px;
+}
+
+/* =========================================================
+   RESOURCES SLATE
+   Used on resources.html
+========================================================= */
+
+#resources {
+  max-width: 860px;
+}
+
+.resources-intro {
+  max-width: 760px;
+
+  margin: -8px 0 42px;
+
+  color: #4f4f4f;
+
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+.resource-group {
+  margin: 0 0 54px;
+}
+
+.resource-group-title {
+  margin: 0 0 16px;
+
+  padding-bottom: 11px;
+
+  border-bottom: 1px solid var(--research-line);
+
+  color: #5f5f5f;
+
+  font-size: 14px;
+  font-weight: 700;
+
+  line-height: 1.2;
+
+  letter-spacing: 1.5px;
+
+  text-transform: uppercase;
+}
+
+.resource-list {
+  display: grid;
+  grid-template-columns: 1fr;
+
+  gap: 14px;
+
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+}
+
+.resource-card {
+  padding: 22px 24px;
+
+  border: 1px solid var(--resource-card-border);
+  border-radius: 8px;
+
+  background: var(--resource-card-bg);
+
+  transition:
+    border-color 0.16s ease,
+    background-color 0.16s ease,
+    transform 0.16s ease;
+}
+
+.resource-card:hover {
+  border-color: #d2d2d2;
+
+  background: #ffffff;
+
+  transform: translateY(-1px);
+}
+
+.resource-title {
+  margin: 0 0 7px;
+
+  font-size: 17px;
+  font-weight: 700;
+
+  line-height: 1.35;
+}
+
+.resource-title a,
+.resource-title a:visited {
+  color: var(--link);
+
+  text-decoration: none;
+}
+
+.resource-title a:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.resource-description {
+  margin: 0;
+
+  color: #444444;
+
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+.resource-meta {
+  margin: 10px 0 0;
+
+  color: var(--resource-meta);
+
+  font-size: 13px;
+  font-weight: 700;
+
+  line-height: 1.35;
+
+  letter-spacing: 0.2px;
+}
+
+.resource-actions {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 8px;
+
+  margin-top: 15px;
+}
+
+.resource-button,
+.resource-button:visited {
+  display: inline-block;
+
+  padding: 8px 12px;
+
+  border-radius: 5px;
+
+  background: var(--teaching-box);
+
+  color: var(--teaching-box-text) !important;
+
+  font-size: 13px;
+  font-weight: 700;
+
+  line-height: 1.15;
+
+  text-decoration: none !important;
+
+  transition:
+    background-color 0.16s ease,
+    color 0.16s ease;
+}
+
+.resource-button:hover {
+  background: var(--teaching-hover);
+
+  color: #ffffff !important;
+
+  text-decoration: none !important;
+}
+
+.resource-button:focus-visible {
+  outline: 2px solid var(--teaching-hover);
+  outline-offset: 2px;
+}
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+  :root {
+    --sidebar-width: 280px;
+  }
+
+  .hero {
+    padding: 30px 22px;
+  }
+
+  .photo-wrap {
+    max-width: 235px;
+  }
+
+  h1 {
+    font-size: 27px;
+  }
+
+  .role,
+  .institution {
+    font-size: 15px;
+  }
+
+  .content-panel,
+  .slate {
+    padding-left: 34px;
+    padding-right: 34px;
+  }
+
+  .nav {
+    gap: 22px;
+  }
+
+  .bio-grid {
+    grid-template-columns: 1fr;
+
+    gap: 34px;
+  }
+
+  .teaching-course {
+    grid-template-columns: 145px minmax(0, 1fr);
+
+    gap: 20px;
+  }
+
+  .teaching-semesters {
+    padding-right: 18px;
+  }
+
+  .semester-link {
+    font-size: 13px;
+  }
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 680px) {
+
+  html,
+  body {
+    height: auto;
+  }
+
+  body {
+    overflow: visible;
+  }
+
+  .page {
+    display: block;
+
+    width: 100%;
+    height: auto;
+  }
+
+  .hero {
+    width: 100%;
+    height: auto;
+
+    padding: 24px;
+
+    overflow: visible;
+
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .photo-wrap {
+    width: 220px;
+    max-width: 100%;
+
+    margin-bottom: 24px;
+  }
+
+  h1 {
+    font-size: 27px;
+  }
+
+  .role,
+  .institution {
+    font-size: 15px;
+  }
+
+  .contact-buttons {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .contact-button {
+    font-size: 13px;
+
+    padding: 8px 13px;
+  }
+
+  .content-panel,
+  .slate {
+    height: auto;
+
+    overflow: visible;
+
+    padding: 0 24px 60px;
+  }
+
+  .nav {
+    top: 0;
+
+    gap: 18px;
+
+    margin-bottom: 38px;
+
+    padding: 17px 0 12px;
+  }
+
+  .nav a {
+    font-size: 12px;
+
+    letter-spacing: 0.6px;
+  }
+
+  section {
+    margin-bottom: 70px;
+
+    scroll-margin-top: 75px;
+  }
+
+  section > h2,
+  h2 {
+    font-size: 23px;
+  }
+
+  .bio-grid {
+    grid-template-columns: 1fr;
+
+    gap: 34px;
+
+    margin-top: 50px;
+  }
+
+  .bio-heading {
+    font-size: 13px;
+  }
+
+  .bio-list li,
+  .education-list li {
+    font-size: 16px;
+  }
+
+  .school-line {
+    font-size: 15px;
+  }
+
+  .research-group-title {
     margin-top: 42px;
 
     font-size: 13px;
