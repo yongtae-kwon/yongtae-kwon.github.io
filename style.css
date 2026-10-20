@@ -1524,6 +1524,138 @@ h3 {
   }
 }
 
+
+/* =========================================================
+   NEWS SECTION
+========================================================= */
+
+#news {
+  width: 100%;
+  margin-bottom: 90px;
+  font-family: "Inter Tight", Varta, sans-serif;
+}
+
+.news-accordion {
+  width: 100%;
+  border-radius: 12px;
+  background: #f8f8f8;
+  overflow: hidden;
+}
+
+.news-summary {
+  display: grid;
+  grid-template-columns: 115px minmax(0, 1fr) 24px;
+  align-items: center;
+  gap: 18px;
+
+  padding: 15px 20px;
+
+  cursor: pointer;
+  list-style: none;
+}
+
+.news-summary::-webkit-details-marker {
+  display: none;
+}
+
+.news-date {
+  color: #89999b;
+  font-size: 15px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.news-text {
+  color: #222222;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.45;
+}
+
+.news-chevron {
+  width: 10px;
+  height: 10px;
+
+  border-right: 2px solid #222;
+  border-bottom: 2px solid #222;
+
+  transform: rotate(45deg);
+  transition: transform 0.2s ease;
+}
+
+.news-accordion[open] .news-chevron {
+  transform: rotate(225deg);
+}
+
+/* Expanded news list */
+
+.news-expanded {
+  padding: 0 20px 12px;
+}
+
+.news-entry {
+  display: grid;
+  grid-template-columns: 115px minmax(0, 1fr);
+  align-items: baseline;
+  gap: 18px;
+
+  padding: 14px 0;
+
+  border-bottom: 1px dotted #c8d0d2;
+}
+
+.news-entry:last-child {
+  border-bottom: none;
+}
+
+/* Hide duplicated latest news on expansion */
+
+.news-accordion[open] .news-summary .news-date,
+.news-accordion[open] .news-summary .news-text {
+  visibility: hidden;
+}
+
+.news-accordion[open] .news-summary {
+  position: absolute;
+  right: 0;
+  z-index: 1;
+}
+
+.news-accordion[open] {
+  position: relative;
+}
+
+/* Mobile */
+
+@media (max-width: 680px) {
+  .news-summary {
+    grid-template-columns: 75px minmax(0, 1fr) 20px;
+    gap: 10px;
+    padding: 14px;
+  }
+
+  .news-expanded {
+    padding: 0 14px 10px;
+  }
+
+  .news-entry {
+    grid-template-columns: 75px minmax(0, 1fr);
+    gap: 10px;
+  }
+
+  .news-date {
+    font-size: 13px;
+  }
+
+  .news-text {
+    font-size: 14px;
+  }
+}
+
+
+
+
+
 #about strong {
   font-weight: 500;
 }
