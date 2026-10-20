@@ -163,23 +163,25 @@ h1 {
 /* =========================================================
    CREDENTIALS
 ========================================================= */
-
 .role,
 .institution {
- margin: 0 0 4px;
+  margin: 0 0 5px;
 
-   font-family:
+  font-family:
     "Helvetica Neue",
     Helvetica,
     Arial,
     sans-serif;
 
   font-size: 17px;
-  font-weight: 500;
+  font-weight: 400;
 
-  line-height: 1.35;
+  line-height: 1.4;
+  letter-spacing: -0.15px;
 
-  color: var(--credential);
+  color: #888888;
+
+  -webkit-font-smoothing: antialiased;
 }
 
 .institution:last-of-type {
