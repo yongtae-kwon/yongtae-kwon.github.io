@@ -176,6 +176,7 @@ h1 {
   line-height: 1.35;
 
   color: var(--credential);
+  letter-spacing: -0.2px;
 }
 
 .institution:last-of-type {
