@@ -171,12 +171,11 @@ h1 {
   font-family: "Lato", Arial, sans-serif;
 
   font-size: 17px;
-  font-weight: 400;
+  font-weight: 500;
 
   line-height: 1.35;
 
   color: var(--credential);
-  letter-spacing: -0.2px;
 }
 
 .institution:last-of-type {
