@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;700&family=Lato:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;700&display=swap');
 
 :root {
   --text: #111111;
@@ -192,7 +192,7 @@ h1 {
 .contact {
   margin: 26px 0 0;
 
-  font-family: "Lato", Arial, sans-serif;
+  font-family: "Inter Tight", Varta, sans-serif;
 }
 
 /* =========================================================
@@ -224,7 +224,7 @@ h1 {
 
   color: var(--text) !important;
 
-  font-family: "Lato", Arial, sans-serif;
+  font-family: "Inter Tight", Varta, sans-serif;
   font-size: 14px;
   font-weight: 700;
 
@@ -338,7 +338,7 @@ a:hover {
 
   backdrop-filter: blur(8px);
 
-  font-family: "Lato", Arial, sans-serif;
+  font-family: "Inter Tight", Varta, sans-serif;
 }
 
 .nav a,
@@ -352,7 +352,7 @@ a:hover {
 
   color: var(--text) !important;
 
-  font-family: "Lato", Arial, sans-serif;
+  font-family: "Inter Tight", Varta, sans-serif;
 
   font-size: 13px;
   font-weight: 700;
@@ -417,7 +417,7 @@ section {
 
   padding: 0;
 
-  font-family: "Lato", Arial, sans-serif;
+  font-family: "Inter Tight", Varta, sans-serif;
 
   scroll-margin-top: 100px;
 }
@@ -436,7 +436,7 @@ h2 {
 
   border: none;
 
-  font-family: "Lato", Arial, sans-serif;
+  font-family: "Inter Tight", Varta, sans-serif;
 
   font-size: 25px;
   font-weight: 700;
@@ -449,7 +449,7 @@ h2 {
 }
 
 h3 {
-  font-family: "Lato", Arial, sans-serif;
+  font-family: "Inter Tight", Varta, sans-serif;
 
   font-size: 18px;
   font-weight: 400;
@@ -464,7 +464,7 @@ h3 {
 ========================================================= */
 
 #about {
-  font-family: "Lato", Arial, sans-serif;
+  font-family: "Inter Tight", Varta, sans-serif;
 }
 
 #about > p {
@@ -496,7 +496,7 @@ h3 {
 .bio-heading {
   margin: 0 0 20px;
 
-  font-family: "Lato", Arial, sans-serif;
+  font-family: "Inter Tight", Varta, sans-serif;
 
   font-size: 14px;
   font-weight: 700;
@@ -523,7 +523,7 @@ h3 {
 .bio-list li {
   margin-bottom: 13px;
 
-  font-family: "Lato", Arial, sans-serif;
+  font-family: "Inter Tight", Varta, sans-serif;
 
   font-size: 17px;
   font-weight: 400;
@@ -546,7 +546,7 @@ h3 {
 .education-list li {
   margin-bottom: 17px;
 
-  font-family: "Lato", Arial, sans-serif;
+  font-family: "Inter Tight", Varta, sans-serif;
 
   font-size: 17px;
 
@@ -576,7 +576,7 @@ h3 {
 ========================================================= */
 
 #research {
-  font-family: "Lato", Arial, sans-serif;
+  font-family: "Inter Tight", Varta, sans-serif;
 }
 
 /* =========================================================
@@ -592,7 +592,7 @@ h3 {
 
   color: #5f5f5f;
 
-  font-family: "Lato", Arial, sans-serif;
+  font-family: "Inter Tight", Varta, sans-serif;
 
   font-size: 14px;
   font-weight: 700;
@@ -668,7 +668,7 @@ h3 {
 .research-title {
   margin: 0 0 9px;
 
-  font-family: "Lato", Arial, sans-serif;
+  font-family: "Inter Tight", Varta, sans-serif;
 
   font-size: 17px;
   font-weight: 700;
@@ -706,7 +706,7 @@ h3 {
 
   color: #606060;
 
-  font-family: "Lato", Arial, sans-serif;
+  font-family: "Inter Tight", Varta, sans-serif;
 
   font-size: 15px;
   font-weight: 400;
@@ -755,7 +755,7 @@ h3 {
 
   color: var(--link);
 
-  font-family: "Lato", Arial, sans-serif;
+  font-family: "Inter Tight", Varta, sans-serif;
 
   font-size: 12px;
   font-weight: 700;
@@ -812,7 +812,7 @@ h3 {
 
   color: #333333;
 
-  font-family: "Lato", Arial, sans-serif;
+  font-family: "Inter Tight", Varta, sans-serif;
 
   font-size: 16px;
   font-weight: 400;
@@ -872,7 +872,7 @@ h3 {
 ========================================================= */
 
 #teaching {
-  font-family: "Lato", Arial, sans-serif;
+  font-family: "Inter Tight", Varta, sans-serif;
 }
 
 .teaching-courses {
@@ -925,7 +925,7 @@ h3 {
 
   color: var(--teaching-box-text) !important;
 
-  font-family: "Lato", Arial, sans-serif;
+  font-family: "Inter Tight", Varta, sans-serif;
 
   font-size: 14px;
   font-weight: 700;
@@ -971,7 +971,7 @@ h3 {
 
   color: var(--text);
 
-  font-family: "Lato", Arial, sans-serif;
+  font-family: "Inter Tight", Varta, sans-serif;
 
   font-size: 18px;
   font-weight: 700;
@@ -984,7 +984,7 @@ h3 {
 
   color: #4f4f4f;
 
-  font-family: "Lato", Arial, sans-serif;
+  font-family: "Inter Tight", Varta, sans-serif;
 
   font-size: 16px;
   font-weight: 400;
@@ -1034,7 +1034,7 @@ h3 {
 
   color: var(--teaching-box-text) !important;
 
-  font-family: "Lato", Arial, sans-serif;
+  font-family: "Inter Tight", Varta, sans-serif;
   font-size: 13px;
   font-weight: 700;
 
